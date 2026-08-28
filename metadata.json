@@ -1,0 +1,6 @@
+{
+  "name": "Art of Stamina",
+  "description": "A sleek, premium, authority platform for Art of Stamina — natural techniques, physiology, and evidence-based guides for male performance, confidence, and endurance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

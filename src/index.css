@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Cinzel', serif;
+
+  --color-gold-50: #fbf8f0;
+  --color-gold-100: #f5eedb;
+  --color-gold-200: #ecddb7;
+  --color-gold-300: #dfc58b;
+  --color-gold-400: #d4af5f;
+  --color-gold-500: #c5a059;
+  --color-gold-600: #aa8443;
+  --color-gold-700: #886536;
+  --color-gold-800: #6f512f;
+  --color-gold-900: #5c432a;
+
+  --color-charcoal-950: #08090c;
+  --color-charcoal-900: #0b0c10;
+  --color-charcoal-850: #121319;
+  --color-charcoal-800: #171821;
+  --color-charcoal-700: #232530;
+  --color-charcoal-600: #333644;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: #0b0c10;
+    color: #eae8e3;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Luxury 3D Book Transforms */
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.book-shadow {
+  box-shadow: 
+    -12px 16px 36px -4px rgba(0, 0, 0, 0.85),
+    -4px 6px 16px -2px rgba(0, 0, 0, 0.7),
+    0 0 45px 0 rgba(197, 160, 89, 0.08);
+}
+
+.book-glow {
+  box-shadow: 
+    0 20px 50px -10px rgba(0, 0, 0, 0.9),
+    0 0 35px -5px rgba(197, 160, 89, 0.18);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #f7eed7 0%, #dfc58b 45%, #c5a059 80%, #9f7b3a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #c5a059 0%, #e0c890 50%, #b8934b 100%);
+}
+
+.gold-gradient-border {
+  border-image: linear-gradient(135deg, rgba(223, 197, 139, 0.45), rgba(197, 160, 89, 0.1), rgba(223, 197, 139, 0.2)) 1;
+}
+
+/* Subtle background luxury textures */
+.bg-radial-subtle {
+  background: radial-gradient(circle at 50% 10%, rgba(197, 160, 89, 0.06) 0%, transparent 60%);
+}
+
+.bg-radial-center {
+  background: radial-gradient(circle at 50% 50%, rgba(35, 37, 48, 0.5) 0%, rgba(11, 12, 16, 0.95) 75%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0c10;
+}
+::-webkit-scrollbar-thumb {
+  background: #232530;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3e50;
+}
