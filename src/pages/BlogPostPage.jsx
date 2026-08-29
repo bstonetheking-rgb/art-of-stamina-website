@@ -72,6 +72,9 @@ export default function BlogPostPage({ onOpenGuide }) {
   // Find next article in sequence for circular recommendation
   const currentIndex = BLOG_POSTS.findIndex(p => p.id === post.id);
   const nextPost = BLOG_POSTS[(currentIndex + 1) % BLOG_POSTS.length] || BLOG_POSTS[0];
+  
+  // Other companion articles excluding current
+  const relatedPosts = BLOG_POSTS.filter(p => p.id !== post.id).slice(0, 3);
 
   if (!post) {
     return (
@@ -368,6 +371,39 @@ export default function BlogPostPage({ onOpenGuide }) {
                 </button>
               </div>
 
+              {/* Masterclass Series Navigator */}
+              <div className="p-6 rounded-2xl bg-[#12141e] border border-white/10 shadow-xl space-y-4">
+                <div className="font-serif font-bold text-base text-[#fbf9f4] flex items-center justify-between pb-3 border-b border-white/10">
+                  <span className="flex items-center gap-2">
+                    <BookOpen className="w-4 h-4 text-[#c5a059]" />
+                    <span>Complete Curriculum</span>
+                  </span>
+                  <span className="text-[11px] text-[#dfc58b] font-mono">{BLOG_POSTS.length} Guides</span>
+                </div>
+
+                <div className="space-y-1.5 max-h-[320px] overflow-y-auto pr-1 text-xs">
+                  {BLOG_POSTS.map((p, idx) => {
+                    const isCurrent = p.id === post.id;
+                    return (
+                      <Link
+                        key={p.id}
+                        to={`/blog/${p.slug}`}
+                        className={`flex items-start gap-2 p-2 rounded-lg no-underline transition-all ${
+                          isCurrent
+                            ? 'bg-[#c5a059]/15 border border-[#c5a059]/40 text-[#dfc58b] font-semibold'
+                            : 'text-[#9fa2b3] hover:text-[#fbf9f4] hover:bg-[#181a28]'
+                        }`}
+                      >
+                        <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${isCurrent ? 'bg-[#c5a059] text-black font-bold' : 'bg-white/5 text-[#8e909a]'}`}>
+                          0{idx + 1}
+                        </span>
+                        <span className="line-clamp-2 leading-tight">{p.title}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
               {/* Sidebar Book Promotion */}
               <div className="p-6 rounded-2xl bg-gradient-to-b from-[#181a28] to-[#12141f] border border-[#c5a059]/40 shadow-xl text-center space-y-4">
                 <div className="text-[10px] text-[#dfc58b] font-bold uppercase tracking-widest">
@@ -493,6 +529,43 @@ export default function BlogPostPage({ onOpenGuide }) {
                     </Link>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* COMPANION MASTERCLASSES GRID */}
+            <div className="mt-8 space-y-4">
+              <div className="flex items-center justify-between pb-2 border-b border-white/10">
+                <h4 className="font-serif font-bold text-lg text-[#fbf9f4] flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-[#c5a059]" />
+                  <span>Explore Companion Masterclasses</span>
+                </h4>
+                <Link to="/blog" className="text-xs text-[#dfc58b] hover:underline no-underline font-semibold">
+                  View All ({BLOG_POSTS.length}) →
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {relatedPosts.map(rel => (
+                  <Link 
+                    key={rel.id} 
+                    to={`/blog/${rel.slug}`} 
+                    className="p-4 rounded-xl bg-[#12141f] border border-white/10 hover:border-[#c5a059]/40 transition-all flex flex-col justify-between group no-underline"
+                  >
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between text-[10px]">
+                        <span className="text-[#dfc58b] font-medium uppercase">{rel.category}</span>
+                        <span className="text-[#8e909a]">{rel.readTime}</span>
+                      </div>
+                      <h5 className="font-serif font-bold text-sm text-[#fbf9f4] group-hover:text-[#dfc58b] transition-colors leading-snug line-clamp-2">
+                        {rel.title}
+                      </h5>
+                    </div>
+                    <div className="pt-3 flex items-center gap-1 text-[11px] text-[#c5a059] font-semibold">
+                      <span>Read Guide</span>
+                      <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Dna, 
   Sparkles, 
@@ -21,7 +22,9 @@ import {
   Award,
   TrendingUp,
   Stethoscope,
-  Target
+  Target,
+  ArrowUpRight,
+  BookOpen
 } from 'lucide-react';
 import BookMockup from '../BookMockup';
 
@@ -233,6 +236,29 @@ export default function ArticleLongevity({ post, onLockerClick }) {
             <p className="text-xs text-[#cbc7be]">Keep blood pressure strictly under 120/80 mmHg and manage fasting blood glucose, ApoB, and systemic inflammation (hs-CRP).</p>
           </div>
         </div>
+
+        {/* COMPANION INTERLINK: NITRIC OXIDE BLUEPRINT */}
+        <div className="my-5 p-4 rounded-xl bg-[#151826] border border-[#c5a059]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="space-y-0.5">
+            <div className="text-[10px] text-[#dfc58b] font-bold uppercase tracking-wider flex items-center gap-1">
+              <BookOpen className="w-3.5 h-3.5 text-[#c5a059]" />
+              <span>Companion Masterclass</span>
+            </div>
+            <div className="text-sm font-serif font-bold text-[#fbf9f4]">
+              The Nitric Oxide Nutrition &amp; Vasodilation Blueprint
+            </div>
+            <div className="text-xs text-[#8e909a]">
+              Dive deep into nitrate pathways, citrulline dosing, and antioxidant cofactors for arterial elasticity.
+            </div>
+          </div>
+          <Link
+            to="/blog/nitric-oxide-blueprint-nutrition"
+            className="flex-shrink-0 inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-[#c5a059]/20 hover:bg-[#c5a059] text-[#dfc58b] hover:text-black text-xs font-bold transition-all no-underline"
+          >
+            <span>Read Blueprint</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
       </section>
 
       {/* CHAPTER 2 */}
@@ -275,6 +301,34 @@ export default function ArticleLongevity({ post, onLockerClick }) {
         <p className="p-4 rounded-xl bg-[#181a28] border-l-2 border-[#dfc58b] text-[#fbf9f4] font-serif italic text-sm sm:text-base">
           “True pelvic health is not just about clenching power; it is about voluntary motor control—the ability to fully relax and drop the pelvic floor on demand using diaphragmatic breath.”
         </p>
+
+        {/* COMPANION INTERLINKS: BREATHWORK & SOLO LAB */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+          <Link
+            to="/blog/the-breath-of-stamina-arousal-control-breathwork"
+            className="p-3.5 rounded-xl bg-[#141624] border border-white/10 hover:border-[#c5a059]/40 transition-all no-underline group block"
+          >
+            <div className="text-[10px] text-[#dfc58b] uppercase font-bold flex items-center justify-between">
+              <span>Pelvic Calibration</span>
+              <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </div>
+            <div className="font-serif font-bold text-xs sm:text-sm text-[#fbf9f4] group-hover:text-[#dfc58b] transition-colors mt-1">
+              The Breath of Stamina: Diaphragmatic Loop
+            </div>
+          </Link>
+          <Link
+            to="/blog/solo-laboratory-ejaculatory-reflex-control"
+            className="p-3.5 rounded-xl bg-[#141624] border border-white/10 hover:border-[#c5a059]/40 transition-all no-underline group block"
+          >
+            <div className="text-[10px] text-emerald-400 uppercase font-bold flex items-center justify-between">
+              <span>Motor Control Protocol</span>
+              <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </div>
+            <div className="font-serif font-bold text-xs sm:text-sm text-[#fbf9f4] group-hover:text-emerald-300 transition-colors mt-1">
+              The Solo Laboratory: Reflex Training
+            </div>
+          </Link>
+        </div>
       </section>
 
       {/* CHAPTER 3 */}
@@ -549,6 +603,29 @@ export default function ArticleLongevity({ post, onLockerClick }) {
           Many men who maintain lean body mass, resistance train regularly, and sleep 7 to 8 hours maintain robust total and free testosterone well into their 60s and 70s without exogenous intervention.
         </p>
 
+        {/* COMPANION INTERLINK: ENDOCRINE ARCHITECTURE */}
+        <div className="my-4 p-4 rounded-xl bg-[#141624] border border-[#c5a059]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="space-y-0.5">
+            <div className="text-[10px] text-[#dfc58b] font-bold uppercase tracking-wider flex items-center gap-1">
+              <BookOpen className="w-3.5 h-3.5 text-[#c5a059]" />
+              <span>Companion Masterclass</span>
+            </div>
+            <div className="text-sm font-serif font-bold text-[#fbf9f4]">
+              The Endocrine Architecture: The Testosterone-Stamina Axis
+            </div>
+            <div className="text-xs text-[#8e909a]">
+              Complete guide to SHBG, free testosterone, sleep pulses, and endocrine vitality.
+            </div>
+          </div>
+          <Link
+            to="/blog/the-endocrine-architecture-testosterone-stamina-axis"
+            className="flex-shrink-0 inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-[#c5a059]/20 hover:bg-[#c5a059] text-[#dfc58b] hover:text-black text-xs font-bold transition-all no-underline"
+          >
+            <span>Read Guide</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
         <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#fbf9f4] pt-3">
           Regenerative Therapies (Li-ESWT, PRP &amp; Stem Cells): Evidence vs. Hype
         </h3>
@@ -558,6 +635,29 @@ export default function ArticleLongevity({ post, onLockerClick }) {
         <p>
           While clinical trials indicate potential benefit for specific men with mild-to-moderate vasculogenic erectile dysfunction, it is not a magic eraser that replaces sleep, exercise, and vascular health. Beware of predatory clinics promising to “turn back the clock 20 years” without addressing the foundational lifestyle pillars.
         </p>
+
+        {/* COMPANION INTERLINK: REFRACTORY & MULTI-ROUND */}
+        <div className="my-4 p-4 rounded-xl bg-[#141624] border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="space-y-0.5">
+            <div className="text-[10px] text-[#4ade80] font-bold uppercase tracking-wider flex items-center gap-1">
+              <RefreshCw className="w-3.5 h-3.5 text-[#4ade80]" />
+              <span>Recovery Protocol</span>
+            </div>
+            <div className="text-sm font-serif font-bold text-[#fbf9f4]">
+              Elite Recovery: The Refractory Period &amp; Multi-Round Mastery
+            </div>
+            <div className="text-xs text-[#8e909a]">
+              Neurotransmitter shifts, prolactin modulation, and accelerating recovery between rounds.
+            </div>
+          </div>
+          <Link
+            to="/blog/elite-recovery-refractory-period-multi-round"
+            className="flex-shrink-0 inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-[#4ade80] text-white hover:text-black text-xs font-bold transition-all no-underline"
+          >
+            <span>Read Recovery Guide</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
       </section>
 
       {/* CHAPTER 9 & 10 */}
@@ -571,6 +671,29 @@ export default function ArticleLongevity({ post, onLockerClick }) {
         <p>
           In youth, intimacy is often driven by frantic urgency and performance anxiety. In maturity, you have the wisdom to understand that real sexual stamina is about sustained pleasure, rhythmic modulation, emotional attunement, and somatic presence.
         </p>
+
+        {/* COMPANION INTERLINK: PSYCHOLOGY */}
+        <div className="my-4 p-4 rounded-xl bg-[#151826] border border-[#c5a059]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="space-y-0.5">
+            <div className="text-[10px] text-[#dfc58b] font-bold uppercase tracking-wider flex items-center gap-1">
+              <BookOpen className="w-3.5 h-3.5 text-[#c5a059]" />
+              <span>Companion Masterclass</span>
+            </div>
+            <div className="text-sm font-serif font-bold text-[#fbf9f4]">
+              The Psychology of Stamina: Rewiring the Brain for Control
+            </div>
+            <div className="text-xs text-[#8e909a]">
+              Dismantling spectatoring, breaking the goal-oriented rush, and sensory presence.
+            </div>
+          </div>
+          <Link
+            to="/blog/the-psychology-of-stamina-rewiring-brain-performance"
+            className="flex-shrink-0 inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-[#c5a059]/20 hover:bg-[#c5a059] text-[#dfc58b] hover:text-black text-xs font-bold transition-all no-underline"
+          >
+            <span>Read Psychology Guide</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
       </section>
 
       {/* FAQ SECTION */}
