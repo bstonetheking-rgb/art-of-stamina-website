@@ -28,6 +28,8 @@ import ArticlePsychology from '../components/articles/ArticlePsychology';
 import ArticleLifestyle from '../components/articles/ArticleLifestyle';
 import ArticleSoloLab from '../components/articles/ArticleSoloLab';
 import ArticleRefractory from '../components/articles/ArticleRefractory';
+import ArticleBreathMastery from '../components/articles/ArticleBreathMastery';
+import ArticleEndocrine from '../components/articles/ArticleEndocrine';
 import BookMockup from '../components/BookMockup';
 import { triggerContentLocker } from '../utils/locker';
 
@@ -419,7 +421,11 @@ export default function BlogPostPage({ onOpenGuide }) {
           <article className="lg:col-span-8 space-y-12">
             
             {/* Conditional Rendering of Specific Full Article */}
-            {post.id === 'elite-recovery-refractory-period-multi-round' ? (
+            {post.id === 'the-endocrine-architecture-testosterone-stamina-axis' ? (
+              <ArticleEndocrine post={post} onLockerClick={handleLockerClick} />
+            ) : post.id === 'the-breath-of-stamina-arousal-control-breathwork' ? (
+              <ArticleBreathMastery post={post} onLockerClick={handleLockerClick} />
+            ) : post.id === 'elite-recovery-refractory-period-multi-round' ? (
               <ArticleRefractory post={post} onLockerClick={handleLockerClick} />
             ) : post.id === 'solo-laboratory-ejaculatory-reflex-control' ? (
               <ArticleSoloLab post={post} onLockerClick={handleLockerClick} />

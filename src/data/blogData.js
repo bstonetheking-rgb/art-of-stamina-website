@@ -40,7 +40,51 @@ import diaphragmLoopImg from '../assets/images/diaphragm_pelvic_loop_17878647748
 import physioSighImg from '../assets/images/physio_sigh_box_breath_1787864790238.jpg';
 import breathTensionImg from '../assets/images/breath_tension_release_1787864801897.jpg';
 
+// Asset paths for Endocrine Architecture article
+import endocrineHeroImg from '../assets/images/endocrine_hero_img_1787983296725.jpg';
+import endocrineAxisImg from '../assets/images/endocrine_axis_chart_1787983315905.jpg';
+import endocrineTrainingImg from '../assets/images/endocrine_training_img_1787983330848.jpg';
+import endocrineSleepImg from '../assets/images/endocrine_recovery_sleep_1787983343016.jpg';
+
 export const BLOG_POSTS = [
+  {
+    id: "the-endocrine-architecture-testosterone-stamina-axis",
+    slug: "the-endocrine-architecture-testosterone-stamina-axis",
+    title: "The Endocrine Architecture: The Testosterone-Stamina Axis — Supporting Your Hormones for Sexual Vitality and Performance",
+    fullTitle: "The Endocrine Architecture: The Testosterone-Stamina Axis — Supporting Your Hormones for Sexual Vitality and Performance",
+    subtitle: "A comprehensive guide to testosterone, cortisol, SHBG, free vs total androgens, compound training, and restorative sleep for lasting male vitality.",
+    publishedDate: "August 2026",
+    readTime: "15 min read",
+    category: "Endocrine & Hormones",
+    targetKeywords: "Testosterone for sexual stamina, hormonal optimization for men, boost free testosterone naturally, cortisol and performance, estrogen balance in men, SHBG and stamina, endocrine biohacking",
+    author: {
+      name: "Art of Stamina Endocrine Lab",
+      role: "Endocrine & Metabolic Physiology",
+      avatar: "HORMONE"
+    },
+    heroImage: endocrineHeroImg,
+    heroImageAlt: "Male hormonal vitality, testosterone-stamina axis, and endocrine health",
+    images: {
+      hero: endocrineHeroImg,
+      axisChart: endocrineAxisImg,
+      training: endocrineTrainingImg,
+      sleepRecovery: endocrineSleepImg,
+    },
+    toc: [
+      { id: "endocrine-intro", title: "Introduction: The Hormonal Foundation Behind Stamina" },
+      { id: "endocrine-ch1", title: "1. Testosterone, the Brain, and Sexual Drive" },
+      { id: "endocrine-ch2", title: "2. Stress, Cortisol, and the Stamina Problem" },
+      { id: "endocrine-ch3", title: "3. Total vs. Free Testosterone & SHBG" },
+      { id: "endocrine-ch4", title: "4. The Nutritional Foundation for Healthy Hormones" },
+      { id: "endocrine-ch5", title: "5. Strength Training and Hormonal Health" },
+      { id: "endocrine-ch6", title: "6. Sleep — The True Engine of Testosterone" },
+      { id: "endocrine-ch7", title: "7. Estrogen Is Not the Enemy — Balance Matters" },
+      { id: "endocrine-ch8", title: "8 & 9. Environmental Exposures & Psychology" },
+      { id: "endocrine-ch10", title: "10. When to Test Your Hormones & Understanding TRT" },
+      { id: "endocrine-faq", title: "FAQ: Hormones & Sexual Stamina" },
+      { id: "endocrine-conclusion", title: "Conclusion: Build the System, Not the Hype" },
+    ],
+  },
   {
     id: "the-breath-of-stamina-arousal-control-breathwork",
     slug: "the-breath-of-stamina-arousal-control-breathwork",
