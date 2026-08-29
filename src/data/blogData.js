@@ -46,7 +46,50 @@ import endocrineAxisImg from '../assets/images/endocrine_axis_chart_178798331590
 import endocrineTrainingImg from '../assets/images/endocrine_training_img_1787983330848.jpg';
 import endocrineSleepImg from '../assets/images/endocrine_recovery_sleep_1787983343016.jpg';
 
+// Asset paths for Psychology of Stamina article
+import psychNewHeroImg from '../assets/images/psych_stamina_hero_1788019312751.jpg';
+import spectatoringChartImg from '../assets/images/spectatoring_loop_chart_1788019327260.jpg';
+import sensoryFocusImg from '../assets/images/sensory_grounding_focus_1788019341435.jpg';
+import mentalAnchorImg from '../assets/images/mental_anchor_reset_1788019354959.jpg';
+
 export const BLOG_POSTS = [
+  {
+    id: "the-psychology-of-stamina-rewiring-brain-performance",
+    slug: "the-psychology-of-stamina-rewiring-brain-performance",
+    title: "The Psychology of Stamina: Rewiring the Brain for Better Performance, Presence, and Control",
+    fullTitle: "The Psychology of Stamina: Rewiring the Brain for Better Performance, Presence, and Control",
+    subtitle: "How to overcome performance anxiety, dismantle spectatoring, ground your senses, and rewire conditioned arousal pathways for effortless presence.",
+    publishedDate: "August 2026",
+    readTime: "14 min read",
+    category: "Psychology & Mindset",
+    targetKeywords: "Performance anxiety for men, psychological causes of premature climax, mindfulness for sexual stamina, how to stop overthinking in bed, mental focus techniques for men, sexual endurance psychology, rewire brain for stamina",
+    author: {
+      name: "Art of Stamina Neuro-Psychology Lab",
+      role: "Cognitive Neuroscience & Mindset",
+      avatar: "MIND"
+    },
+    heroImage: psychNewHeroImg,
+    heroImageAlt: "The psychology of stamina, performance anxiety, mindfulness, and cognitive presence",
+    images: {
+      hero: psychNewHeroImg,
+      spectatoringChart: spectatoringChartImg,
+      sensoryFocus: sensoryFocusImg,
+      mentalAnchor: mentalAnchorImg,
+    },
+    toc: [
+      { id: "psych-intro", title: "Introduction: Your Mind Is Part of the Stamina System" },
+      { id: "psych-ch1", title: "1. Performance Anxiety and the Brain's Threat Response" },
+      { id: "psych-ch2", title: "2. The “Spectatoring” Trap & Self-Monitoring" },
+      { id: "psych-ch3", title: "3. Arousal, Reward, and Why the Brain Rushes" },
+      { id: "psych-ch4", title: "4. Mindfulness and Sensory Focus" },
+      { id: "psych-ch5", title: "5. Breaking the Goal-Oriented Mindset" },
+      { id: "psych-ch6", title: "6. Reconditioning Sexual Habits in Solo Practice" },
+      { id: "psych-ch7", title: "7 & 8. Breathing Resets, Visualization & Mental Anchors" },
+      { id: "psych-ch9", title: "9 & 10. The “Perfect Performer” Myth & Stopping Overthinking" },
+      { id: "psych-faq", title: "FAQ: The Psychology of Sexual Stamina" },
+      { id: "psych-conclusion", title: "Conclusion: Mastering the Mind & Complete Curriculum" },
+    ],
+  },
   {
     id: "the-endocrine-architecture-testosterone-stamina-axis",
     slug: "the-endocrine-architecture-testosterone-stamina-axis",

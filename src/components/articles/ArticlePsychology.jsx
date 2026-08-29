@@ -3,49 +3,67 @@ import {
   Brain, 
   Sparkles, 
   CheckCircle2, 
-  Eye, 
-  Wind, 
   ChevronDown, 
   ChevronUp, 
   AlertCircle, 
-  ShieldAlert,
-  Compass,
-  Volume2,
   Heart,
-  Hand,
+  Moon,
+  Zap,
+  Clock,
+  BatteryCharging,
+  Sliders,
+  Scale,
+  ShieldCheck,
+  Dna,
+  Eye,
+  Activity,
+  Compass,
   Layers,
-  Smile
+  ThermometerSnowflake,
+  Flame,
+  Volume2,
+  RefreshCw
 } from 'lucide-react';
 import BookMockup from '../BookMockup';
 
 export default function ArticlePsychology({ post, onLockerClick }) {
   const [activeFaq, setActiveFaq] = useState(null);
-  const [activeGroundingStep, setActiveGroundingStep] = useState(0);
-  const [checkedTension, setCheckedTension] = useState({});
+  
+  // Interactive Mental Reset Practice State
+  const [activeThoughtPattern, setActiveThoughtPattern] = useState('performance');
+  const [isGrounded, setIsGrounded] = useState(false);
 
   const toggleFaq = (index) => {
     setActiveFaq(activeFaq === index ? null : index);
   };
 
-  const toggleTensionCheck = (key) => {
-    setCheckedTension(prev => ({ ...prev, [key]: !prev[key] }));
+  const thoughtScenarios = {
+    performance: {
+      toxic: '"I have to last longer this time. If I finish in 2 minutes, my partner is going to be secretly disappointed and judge me."',
+      physiologicalCost: 'Triggers amygdala threat response, norepinephrine surge, elevated heart rate, rapid breath holding, and pelvic clamping.',
+      reframe: '"Arousal is rising naturally. I don\'t need to prove anything right now. I will slow my breathing, soften my jaw, and stay present in the sensation."',
+      somaticCue: 'Exhale slowly (6s), drop shoulders, separate teeth.'
+    },
+    timer: {
+      toxic: '"How many minutes has it been? It feels like it\'s already too close. I need to think about something boring like math or baseball to distract myself."',
+      physiologicalCost: 'Severe sensory dissociation, loss of somatic feedback, followed by sudden unmonitored reflex threshold crossing.',
+      reframe: '"Distraction pulls me out of my body. Instead of escaping, I will connect with my partner\'s touch, anchor in my breathing, and adjust my pacing smoothly."',
+      somaticCue: 'Feel the temperature of partner’s skin, take 1 slow nasal breath.'
+    },
+    spectator: {
+      toxic: '"Look at yourself. You are tense, breathing fast, and about to lose control. You are failing again."',
+      physiologicalCost: 'Severe spectatoring loop, chronic self-monitoring, acute anxiety spike, acceleration of involuntary spinal ejaculation reflex.',
+      reframe: '"I notice I am self-monitoring. That is just an old mental habit. I shift from judgment to observation: my breathing is fast, so I simply pause and reset."',
+      somaticCue: 'Perform the 5-Point Tension Release (Jaw, Shoulders, Belly, Glutes, Pelvic Floor).'
+    }
   };
-
-  const tensionAreas = [
-    { key: 'jaw', name: 'Jaw & Facial Muscles', cue: 'Part teeth slightly and allow tongue to rest softly on floor of mouth.' },
-    { key: 'shoulders', name: 'Shoulders & Trapezius', cue: 'Drop shoulders down and away from ears on a long, slow exhale.' },
-    { key: 'hands', name: 'Hands & Grip', cue: 'Uncurl tight fingers and let palms soften naturally.' },
-    { key: 'abdomen', name: 'Lower Abdomen', cue: 'Release abdominal bracing; let belly expand gently with breath.' },
-    { key: 'glutes', name: 'Glutes & Thighs', cue: 'Unclench buttocks and ease leg tension.' },
-    { key: 'pelvic', name: 'Pelvic Floor / Perineum', cue: 'Drop down and widen the pelvic diaphragm like a gentle reverse kegel.' }
-  ];
 
   return (
     <div className="prose prose-invert max-w-none space-y-12 text-[#cbc7be] leading-relaxed text-base sm:text-[17px]">
       
       {/* TARGET KEYWORDS BADGES */}
       <div className="p-4 rounded-xl bg-[#12141d] border border-white/10 text-xs text-[#8e909a] flex flex-wrap items-center gap-2">
-        <span className="text-[#dfc58b] font-semibold uppercase tracking-wider">Clinical Keywords:</span>
+        <span className="text-[#dfc58b] font-semibold uppercase tracking-wider">Clinical Focus:</span>
         {post.targetKeywords.split(',').map((kw, i) => (
           <span key={i} className="px-2.5 py-1 rounded-md bg-[#181a26] text-[#b8b5ab] border border-white/5">
             {kw.trim()}
@@ -54,855 +72,572 @@ export default function ArticlePsychology({ post, onLockerClick }) {
       </div>
 
       {/* INTRODUCTION */}
-      <section id="psy-intro" className="scroll-mt-24 space-y-5">
+      <section id="psych-intro" className="scroll-mt-24 space-y-5">
         <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4] border-b border-white/10 pb-3">
-          Introduction: The Brain Is Part of the Equation
+          Introduction: Your Mind Is Part of the Stamina System
         </h2>
         <p>
-          When men want to improve sexual stamina, they often focus on the physical side first.
+          When men start looking for ways to improve sexual stamina, most of them immediately focus on the physical side.
         </p>
         <p>
-          They search for exercises. They try supplements. They change their diet. They learn breathing techniques. They may practice pelvic floor exercises and look for ways to control their level of arousal.
+          They search for exercises. They look into supplements. They practice breathing techniques. They try pelvic floor exercises. They look for a position, technique, or secret trick that promises to help them last longer.
         </p>
         <p>
-          All of these things can play a role.
+          Those things can be part of the bigger picture. But there is one area that is often overlooked:
+        </p>
+        <p className="text-lg font-serif font-bold text-[#dfc58b]">
+          The mind.
         </p>
         <p>
-          But there is another part of the equation that cannot be ignored: <strong>the mind</strong>.
+          Sexual response does not happen in isolation. Your brain, nervous system, emotions, attention, expectations, and stress levels all play a role in how your body responds.
         </p>
         <p>
-          Sexual response does not happen independently of the brain. Arousal, attention, emotion, anxiety, anticipation, and past experiences can all influence how a person experiences sex. This is one reason two sexual experiences can feel completely different even when the physical circumstances appear similar.
+          This is why a man may have completely different experiences from one day to another.
         </p>
         <p>
-          One night, you may feel relaxed and naturally in control. Another time, you may be exhausted, anxious, distracted, or under pressure, and suddenly everything feels harder to manage.
+          One night, he feels relaxed, connected, and naturally in control. Another night, he feels nervous, overly excited, distracted, or under pressure—and suddenly, his usual control seems to disappear.
         </p>
         <p>
-          That does not necessarily mean something is physically wrong with you.
+          The physical body may not have changed very much. But his mental state has.
         </p>
         <p>
-          Sometimes the problem is the mental environment you are bringing into the experience.
+          That is the psychology of stamina.
         </p>
         <p>
-          Performance anxiety can create a particularly frustrating cycle. You worry about finishing too quickly. That worry makes you more alert and tense. You start monitoring every sensation. The more closely you watch yourself, the more pressure you feel. Eventually, sex begins to feel less like a shared experience and more like a test you are afraid of failing.
+          The goal of this guide is not to convince you that you can control every biological response through “mind power.” Human sexuality is more complicated than that. There is no single thought that guarantees perfect control, and persistent problems with ejaculation or sexual function may sometimes require professional medical support.
+        </p>
+        <p>
+          But your mental state matters.
+        </p>
+        <p>
+          Performance anxiety can affect sexual response. Constant self-monitoring can pull you out of the experience. Stress can increase physical tension. Unrealistic expectations can turn intimacy into an exam you feel you have to pass.
+        </p>
+        <p>
+          And once sex starts feeling like a test, the pressure can become part of the problem.
+        </p>
+        <p>
+          This guide explores the psychological side of the <strong>Art of Stamina</strong>. We will look at performance anxiety, the nervous system, the habit of “spectatoring,” mindfulness, conditioned sexual responses, breathing, visualization, communication, and practical ways to become less trapped inside your own head.
         </p>
 
-        {/* Highlight Callout Box */}
+        {/* Highlight Quote Box */}
         <div className="my-6 p-6 rounded-xl bg-gradient-to-r from-[#171a26] to-[#12141d] border-l-4 border-[#c5a059] shadow-md">
           <p className="font-serif italic text-lg sm:text-xl text-[#fbf9f4] leading-relaxed mb-2">
-            "The goal is not to become emotionless or suppress arousal. It is about learning to become more aware of your thoughts, reducing unnecessary pressure, and staying connected to the present moment."
+            "Stop treating every intimate experience as a performance you can fail. Learn to become more present, notice tension earlier, and work with your body instead of panicking when arousal rises."
           </p>
-          <div className="text-xs text-[#c5a059] font-semibold tracking-wider uppercase">— Bedroom IQ Neurobiology & Psychology Lab</div>
+          <div className="text-xs text-[#c5a059] font-semibold tracking-wider uppercase">— Art of Stamina Neuro-Psychology Lab</div>
         </div>
 
-        <p>
-          This guide explores the psychological side of sexual stamina. It is not about becoming emotionless or suppressing arousal. It is about learning to become more aware of your thoughts, reducing unnecessary pressure, and staying connected to the present moment.
-        </p>
-        <p>
-          The goal is not perfection.
-        </p>
-        <p>
-          The goal is <strong>greater awareness and better self-regulation</strong>.
-        </p>
-      </section>
-
-      {/* CHAPTER 1: UNDERSTANDING STRESS & SEXUAL RESPONSE */}
-      <section id="psy-ch1" className="scroll-mt-24 space-y-6 pt-6 border-t border-white/10">
-        <div className="inline-block text-xs font-serif font-bold text-[#c5a059] tracking-widest uppercase">Chapter 1</div>
-        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4]">
-          Understanding Stress and the Sexual Response
-        </h2>
-        <p>
-          Your brain and body are constantly communicating.
-        </p>
-        <p>
-          When you feel calm and safe, your body tends to function differently than when you feel threatened, rushed, embarrassed, or highly anxious.
-        </p>
-        <p>
-          The body's stress response can influence heart rate, breathing, muscle tension, and attention. During sexual activity, excessive anxiety can make it difficult to stay present.
-        </p>
-
-        {/* Featured Image 1: Brain Neurobiology Diagram */}
-        <div className="my-8 rounded-2xl overflow-hidden border border-white/10 bg-[#0f1118] shadow-xl">
-          <div className="aspect-[16/9] w-full overflow-hidden bg-black/40">
+        {/* INLINE IMAGE 1: HERO */}
+        {post.images?.hero && (
+          <div className="my-8 rounded-2xl overflow-hidden border border-white/10 bg-[#12141e] shadow-xl">
             <img 
-              src={post.images.brain} 
-              alt="Anatomical visualization of amygdala stress network vs prefrontal cortex control" 
+              src={post.images.hero} 
+              alt="Neural-psychological mindfulness, presence, and arousal regulation for male stamina"
               referrerPolicy="no-referrer"
-              className="w-full h-full object-cover"
+              className="w-full h-auto max-h-[460px] object-cover"
             />
+            <div className="p-3.5 bg-[#0e1017] border-t border-white/10 text-xs text-[#8e909a] flex items-center justify-between">
+              <span>Figure 1: Neurological presence, amygdala down-regulation, and the psychology of calm mastery</span>
+              <span className="text-[#dfc58b] font-medium hidden sm:inline">Cognitive Architecture</span>
+            </div>
           </div>
-          <div className="p-4 bg-[#141724] border-t border-white/10 text-xs text-[#9fa2b3] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <span><strong>Figure 1.1:</strong> Neural Circuitry of Performance Stress — Amygdala alarm activation vs. Prefrontal executive down-regulation.</span>
-            <span className="text-[#dfc58b] font-mono text-[11px]">NEUROBIOLOGY DIAGRAM</span>
-          </div>
-        </div>
+        )}
+      </section>
 
-        <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#e6e2d8] mt-6">
-          The Brain's Alarm System
+      {/* CHAPTER 1 */}
+      <section id="psych-ch1" className="scroll-mt-24 space-y-5">
+        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4] border-b border-white/10 pb-3">
+          Chapter 1: Performance Anxiety and the Brain's Threat Response
+        </h2>
+        <p>
+          Imagine two situations.
+        </p>
+        <p>
+          In the first, you feel relaxed. You feel comfortable with your partner. You are not watching the clock. You are not trying to prove anything. You are simply present.
+        </p>
+        <p>
+          In the second, your thoughts are racing:
+        </p>
+        <div className="p-4 rounded-xl bg-[#141624] border border-rose-500/20 space-y-1 font-mono text-xs sm:text-sm text-rose-300">
+          <div>• “I have to last longer this time.”</div>
+          <div>• “What if I finish too quickly?”</div>
+          <div>• “Am I doing a good job?”</div>
+          <div>• “What if my partner is secretly disappointed?”</div>
+        </div>
+        <p>
+          Your body experiences these two situations very differently.
+        </p>
+
+        <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#fbf9f4] pt-3">
+          When Sex Starts Feeling Like a Test
         </h3>
         <p>
-          The amygdala is one of several brain regions involved in processing emotionally significant or potentially threatening situations. It is often discussed in relation to fear and stress responses.
+          The brain is constantly evaluating environmental and emotional safety. When something feels safe, the parasympathetic nervous system remains dominant, allowing relaxed blood flow and balanced arousal pacing.
         </p>
         <p>
-          Here is where sexual performance can become complicated.
+          When an experience feels threatening or high-pressure, the amygdala activates a threat response. The “threat” does not need to be a physical predator—it can be <strong>fear of embarrassment</strong>, <strong>fear of inadequacy</strong>, or <strong>fear of judgment</strong>.
         </p>
         <p>
-          Your body may not literally see your bedroom as a dangerous place, but your mind can still treat <strong>performance pressure</strong> as a serious threat.
+          If you believe that your sexual duration determines your masculinity or worth, intimate encounters become high-stakes tests.
         </p>
-        
-        <div className="p-5 rounded-xl bg-[#161826] border border-white/10 space-y-3">
-          <div className="text-xs font-bold text-[#dfc58b] uppercase tracking-wider flex items-center gap-2">
-            <AlertCircle className="w-4 h-4 text-amber-400" />
-            <span>Common Stress-Triggering Mental Loops</span>
-          </div>
-          <ul className="space-y-2 text-sm text-[#b8b5ab] pl-4 list-disc marker:text-[#c5a059]">
-            <li><em>“What if I finish too quickly?”</em></li>
-            <li><em>“What if my partner is disappointed?”</em></li>
-            <li><em>“What if I lose my erection?”</em></li>
-            <li><em>“What if this happens again?”</em></li>
-          </ul>
+        <p>
+          This creates a difficult paradox:
+        </p>
+        <div className="p-4 rounded-xl bg-[#181a28] border-l-2 border-[#dfc58b] text-[#fbf9f4] font-serif italic text-base">
+          “The harder you try not to finish, the more attention you focus on finishing. And the more you obsessively monitor your arousal, the more tension you create.”
         </div>
 
-        <p>
-          Once your attention becomes dominated by fear, your body can respond with increased tension and physiological arousal.
-        </p>
-        <p>
-          This is why telling yourself to simply <strong>“relax”</strong> rarely works.
-        </p>
-        <p>
-          Real relaxation usually requires you to notice what is happening and give yourself something practical to do instead of continuing the mental spiral.
-        </p>
-
-        <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#e6e2d8] mt-6">
-          The Role of Attention and Self-Regulation
+        <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#fbf9f4] pt-3">
+          The Goal Is Not to Eliminate Arousal
         </h3>
         <p>
-          The prefrontal cortex is involved in functions such as attention, planning, and decision-making. It is not a simple “control centre” that can switch sexual responses on and off, but our ability to regulate attention can make a difference.
+          Arousal is not the enemy. Excitement is not the enemy. Pleasure is not the enemy.
         </p>
         <p>
-          When you become overwhelmed, your focus can narrow:
-        </p>
-        <ul className="space-y-2 pl-6 list-disc marker:text-[#c5a059]">
-          <li>You may stop noticing your breathing.</li>
-          <li>You may clench your muscles without realizing it.</li>
-          <li>You may become completely focused on one thought: <strong>“Don't finish.”</strong></li>
-        </ul>
-        <p>
-          Ironically, repeatedly focusing on the thing you are trying to avoid can make it feel even more dominant.
+          The problem occurs when your mind interprets rising arousal as an emergency.
         </p>
         <p>
-          A better approach is learning to redirect attention rather than fighting your thoughts.
+          A healthier skill is learning to recognize: <em>“I am becoming more aroused,”</em> without immediately adding: <em>“Oh no, I'm losing control.”</em>
+        </p>
+        <p>
+          One response triggers sympathetic panic; the other generates mindful observation and adaptive pacing.
         </p>
       </section>
 
-      {/* CHAPTER 2: ESCAPING THE SPECTATORING TRAP */}
-      <section id="psy-ch2" className="scroll-mt-24 space-y-6 pt-6 border-t border-white/10">
-        <div className="inline-block text-xs font-serif font-bold text-[#c5a059] tracking-widest uppercase">Chapter 2</div>
-        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4]">
-          Escaping the Spectatoring Trap
+      {/* CHAPTER 2 */}
+      <section id="psych-ch2" className="scroll-mt-24 space-y-5">
+        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4] border-b border-white/10 pb-3">
+          Chapter 2: The “Spectatoring” Trap
         </h2>
         <p>
-          One of the most damaging mental habits during sex is often called <strong>spectatoring</strong>.
+          One of the most important psychological concepts in modern sexology is known as <strong>spectatoring</strong>.
         </p>
         <p>
-          This happens when you mentally step outside the experience and begin watching and judging yourself as though you are a critic reviewing your own performance.
-        </p>
-        <p>
-          Instead of being present, you start asking questions:
-        </p>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
-          {[
-            "“How am I doing?”",
-            "“Is this lasting long enough?”",
-            "“What does my partner think?”",
-            "“Am I about to finish?”",
-            "“How long has it been?”"
-          ].map((q, i) => (
-            <div key={i} className="p-3.5 rounded-xl bg-[#11131c] border border-white/10 text-sm text-[#d4cfc3] italic flex items-center gap-2.5">
-              <Eye className="w-4 h-4 text-[#c5a059] flex-shrink-0" />
-              <span>{q}</span>
-            </div>
-          ))}
-        </div>
-
-        <p>
-          At first, these questions may seem harmless. But when they repeat continuously, they can pull you out of the experience.
-        </p>
-        <p>
-          You are no longer participating naturally. You are monitoring yourself.
+          Originally identified in clinical sex therapy research by Masters and Johnson, spectatoring describes the destructive habit of mentally stepping outside your own body to observe, judge, and critique your own performance.
         </p>
 
-        <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#e6e2d8] mt-6">
-          Why Self-Monitoring Creates More Pressure
-        </h3>
-        <p>
-          Imagine trying to have a normal conversation while constantly evaluating every word before you say it. You would probably become awkward.
-        </p>
-        <p>
-          Sex can work similarly.
-        </p>
-        <p>
-          When you continuously judge yourself, you divide your attention between the actual experience and your internal commentary. That commentary can quickly become negative.
-        </p>
-        <p>
-          One sensation becomes evidence that you are “losing control.” A small change in your erection becomes proof that something is wrong. A moment of increased arousal becomes a reason to panic.
-        </p>
-        <p>
-          This is where many men accidentally make the situation worse. They are not responding to what is actually happening. They are responding to what they <strong>fear might happen</strong>.
-        </p>
-
-        {/* Comparison Table */}
-        <div className="my-6 p-6 rounded-2xl bg-[#12141f] border border-white/10 space-y-4">
-          <div className="flex items-center gap-2 text-sm font-bold text-[#dfc58b] uppercase tracking-wider">
-            <Layers className="w-4 h-4" />
-            <span>Spectatoring Mode vs. Grounded Mindful Presence</span>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm">
-              <thead>
-                <tr className="border-b border-white/10 text-[#8e909a]">
-                  <th className="pb-3 pr-4 font-semibold">Aspect</th>
-                  <th className="pb-3 px-4 text-red-400 font-semibold">The Spectatoring Trap</th>
-                  <th className="pb-3 pl-4 text-emerald-400 font-semibold">Mindful Presence</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/5">
-                {post.spectatoringComparison?.map((row, idx) => (
-                  <tr key={idx}>
-                    <td className="py-3 pr-4 font-medium text-[#fbf9f4]">{row.aspect}</td>
-                    <td className="py-3 px-4 text-[#b8b5ab] bg-red-950/20 rounded-l-lg">{row.spectatoring}</td>
-                    <td className="py-3 pl-4 text-[#d4cfc3] bg-emerald-950/20 rounded-r-lg">{row.mindful}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#e6e2d8] mt-6">
-          Moving From Analysis to Experience
-        </h3>
-        <p>
-          The alternative is not to become mentally empty. It is to return your attention to direct experience.
-        </p>
-        <ul className="space-y-2 pl-6 list-disc marker:text-[#c5a059]">
-          <li>Notice your breathing.</li>
-          <li>Notice physical sensations without immediately judging them.</li>
-          <li>Pay attention to connection, touch, warmth, movement, and the overall experience.</li>
-        </ul>
-        <p>
-          If your mind says, <em>“You're going to finish too soon,”</em> you do not need to argue with it for five minutes. Simply notice the thought. Then return to what you can actually feel in the present moment.
-        </p>
-        <p>
-          This takes practice, but over time, you may become less reactive to every thought that appears.
-        </p>
-      </section>
-
-      {/* CHAPTER 3: AROUSAL IS NOT THE ENEMY */}
-      <section id="psy-ch3" className="scroll-mt-24 space-y-6 pt-6 border-t border-white/10">
-        <div className="inline-block text-xs font-serif font-bold text-[#c5a059] tracking-widest uppercase">Chapter 3</div>
-        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4]">
-          Arousal Is Not the Enemy
-        </h2>
-        <p>
-          Many men who struggle with stamina begin treating arousal itself as a problem. The moment they feel intense pleasure, they panic.
-        </p>
-        <p>
-          But arousal is not the enemy. The challenge is learning to recognize how your arousal is changing.
-        </p>
-        <p>
-          Instead of thinking in terms of <strong>control or failure</strong>, think of arousal as a spectrum. You might use a simple scale from 1 to 10.
-        </p>
-
-        {/* Arousal Scale Interactive / Visual Bar */}
-        <div className="p-6 rounded-2xl bg-[#141624] border border-white/10 space-y-4">
-          <div className="text-xs font-bold text-[#dfc58b] uppercase tracking-wider flex items-center justify-between">
-            <span>The 1–10 Arousal Awareness Spectrum</span>
-            <span className="text-[#8e909a] font-mono text-[11px]">AUTONOMIC SCALE</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
-            <div className="p-3.5 rounded-xl bg-[#10121a] border border-white/10 space-y-1.5">
-              <div className="font-bold text-[#dfc58b]">Levels 1 to 3</div>
-              <div className="text-[#8e909a] font-medium">Calm Baseline</div>
-              <p className="text-[#cbc7be] text-[11px]">Minimal physiological stimulation. Heart rate calm, pelvic floor resting.</p>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-[#10121a] border border-white/10 space-y-1.5">
-              <div className="font-bold text-[#dfc58b]">Levels 4 to 6</div>
-              <div className="text-[#8e909a] font-medium">Controlled Arousal</div>
-              <p className="text-[#cbc7be] text-[11px]">Strongly aroused while still feeling physically and mentally in control.</p>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-[#231b12] border-2 border-[#c5a059] space-y-1.5 shadow-md">
-              <div className="font-bold text-[#f5d78e] flex items-center gap-1">
-                <span>Level 7</span>
-                <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#c5a059] text-black font-bold uppercase">Key Pivot</span>
-              </div>
-              <div className="text-[#c5a059] font-medium">Golden Threshold</div>
-              <p className="text-[#e2ded5] text-[11px]">Notice intensity building. Slow down, breathe deeply, relax tension, reduce stimulation.</p>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-[#211214] border border-red-500/30 space-y-1.5">
-              <div className="font-bold text-red-400">Levels 8 to 9</div>
-              <div className="text-[#8e909a] font-medium">Point of Inevitability</div>
-              <p className="text-[#cbc7be] text-[11px]">Delaying ejaculation becomes difficult. Neurological trigger is imminent.</p>
-            </div>
-          </div>
-        </div>
-
-        <p>
-          The exact numbers do not matter. <strong>The awareness does.</strong>
-        </p>
-
-        <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#e6e2d8] mt-6">
-          Learn Your Personal Warning Signs
-        </h3>
-        <p>
-          Everyone experiences rising arousal differently. Your warning signs might include:
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-4">
-          {[
-            "Faster, shallow breathing in upper chest",
-            "Tension in your abdomen and hip flexors",
-            "Involuntary clenching of the pelvic floor / perineum",
-            "Tightening in your jaw and clenched teeth",
-            "A sudden urge or impulse to move faster",
-            "A feeling of internal urgency and narrowing focus",
-            "Difficulty paying attention to anything else"
-          ].map((sign, idx) => (
-            <div key={idx} className="p-3 rounded-lg bg-[#12141f] border border-white/5 text-xs text-[#d4cfc3] flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#c5a059]" />
-              <span>{sign}</span>
-            </div>
-          ))}
-        </div>
-
-        <p>
-          The goal is to notice these signals before they become overwhelming. You are training awareness, not trying to become numb.
-        </p>
-      </section>
-
-      {/* CHAPTER 4: MINDFULNESS AND SENSORY FOCUS */}
-      <section id="psy-ch4" className="scroll-mt-24 space-y-6 pt-6 border-t border-white/10">
-        <div className="inline-block text-xs font-serif font-bold text-[#c5a059] tracking-widest uppercase">Chapter 4</div>
-        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4]">
-          Mindfulness and Sensory Focus
-        </h2>
-        <p>
-          Mindfulness is often misunderstood. It does not mean forcing your mind to become completely blank.
-        </p>
-        <p>
-          It means paying attention to the present moment without constantly judging what you are experiencing.
-        </p>
-        <p>
-          In the context of sexual stamina, mindfulness can help you shift from <strong>“What does this mean?”</strong> to <strong>“What am I feeling right now?”</strong>
-        </p>
-        <p>
-          That difference can be powerful.
-        </p>
-
-        {/* Featured Image 2: Sensory Mindfulness & Diaphragmatic Breath */}
-        <div className="my-8 rounded-2xl overflow-hidden border border-white/10 bg-[#0f1118] shadow-xl">
-          <div className="aspect-[16/9] w-full overflow-hidden bg-black/40">
+        {/* INLINE IMAGE 2: SPECTATORING DIAGRAM */}
+        {post.images?.spectatoringChart && (
+          <div className="my-6 rounded-2xl overflow-hidden border border-white/10 bg-[#12141e] shadow-xl">
             <img 
-              src={post.images.mindful} 
-              alt="Mindful sensory grounding and autonomic nervous system regulation" 
+              src={post.images.spectatoringChart} 
+              alt="Spectatoring performance anxiety loop vs mindful somatic presence diagram"
               referrerPolicy="no-referrer"
-              className="w-full h-full object-cover"
+              className="w-full h-auto max-h-[440px] object-cover"
             />
+            <div className="p-3 bg-[#0e1017] border-t border-white/10 text-xs text-[#8e909a] flex items-center justify-between">
+              <span>Figure 2: The Cognitive Spectatoring Loop: From Performance Evaluation to Reflex Acceleration</span>
+              <span className="text-[#dfc58b] font-medium hidden sm:inline">Cognitive Neuro-Loop</span>
+            </div>
           </div>
-          <div className="p-4 bg-[#141724] border-t border-white/10 text-xs text-[#9fa2b3] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <span><strong>Figure 4.1:</strong> Diaphragmatic Breathing &amp; Sensory Grounding — Shifting from internal mental review to grounded bodily presence.</span>
-            <span className="text-[#dfc58b] font-mono text-[11px]">SENSORY FOCUS</span>
-          </div>
-        </div>
+        )}
 
-        <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#e6e2d8] mt-6">
-          Goal-Oriented vs. Process-Oriented Sex
+        <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#fbf9f4] pt-3">
+          Why Self-Monitoring Accelerates the Reflex
         </h3>
         <p>
-          Many men approach sex with a hidden checklist:
+          There is nothing wrong with being attuned to your partner. The problem is obsessive self-monitoring.
         </p>
-        <div className="p-4 rounded-xl bg-[#1a1315] border border-red-500/20 text-xs sm:text-sm text-[#b8b5ab] space-y-1.5">
-          <div className="font-bold text-red-400">The Performance Review Checklist (Anxiety Inducing):</div>
-          <div>Get an erection → Maintain it → Last a certain amount of time → Perform perfectly → Make sure your partner is satisfied → Do not make a mistake.</div>
+        <p>
+          When you are evaluating yourself like a third-party critic, intimacy feels like a live performance review:
+        </p>
+        <div className="p-5 rounded-2xl bg-[#141624] border border-white/10 space-y-2 font-mono text-xs sm:text-sm text-[#dedad2]">
+          <div>1. You worry about lasting long enough.</div>
+          <div>2. You step outside yourself to judge your sensations.</div>
+          <div>3. You notice every slight rise in arousal and panic.</div>
+          <div>4. Anxiety triggers sympathetic adrenaline release.</div>
+          <div>5. Pelvic floor muscles involuntarily clamp tight.</div>
+          <div className="text-rose-400">6. The point of ejaculatory inevitability arrives prematurely.</div>
         </div>
-        <p>
-          This turns intimacy into a performance review. A more process-oriented mindset asks a different question:
-        </p>
-        <div className="p-5 rounded-xl bg-gradient-to-r from-[#171c26] to-[#12141f] border-l-4 border-emerald-400 font-serif text-lg text-[#fbf9f4] italic">
-          “Can I stay present and responsive to what is happening?”
-        </div>
-        <p>
-          This does not mean ignoring your partner's needs or pretending that stamina does not matter. It means understanding that a stopwatch is not the only measure of a positive sexual experience.
-        </p>
-        <p>
-          Connection, communication, responsiveness, pleasure, and comfort matter too.
-        </p>
 
-        {/* INTERACTIVE 5-4-3-2-1 GROUNDING PROTOCOL */}
-        <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#e6e2d8] mt-6">
-          A Simple Grounding Exercise (The 5-4-3-2-1 Shift)
+        <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#fbf9f4] pt-3">
+          Move From Judgment to Awareness
         </h3>
         <p>
-          If you notice yourself spiralling into overthinking, gently return to your senses:
+          The solution is not to become numb or disconnected. The key distinction is between <strong>judgment</strong> and <strong>objective observation</strong>:
         </p>
-
-        <div className="my-6 p-6 rounded-2xl bg-[#141724] border border-[#c5a059]/30 space-y-4">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-[#dfc58b] uppercase tracking-wider flex items-center gap-2">
-              <Compass className="w-4 h-4 text-[#c5a059]" />
-              <span>Interactive Sensory Grounding Tool</span>
-            </span>
-            <span className="text-xs text-[#8e909a]">Click each step to focus</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
+          <div className="p-4 rounded-xl bg-rose-950/20 border border-rose-500/30 space-y-1.5">
+            <div className="text-xs uppercase font-bold text-rose-400">Judgment (Panic Generator)</div>
+            <p className="text-xs text-[#cbc7be] italic">“This is terrible. I am clenching and failing again. I am going to ruin everything.”</p>
           </div>
-
-          <div className="grid grid-cols-1 gap-2.5">
-            {post.groundingSteps?.map((item, idx) => {
-              const isActive = activeGroundingStep === idx;
-              return (
-                <div 
-                  key={idx}
-                  onClick={() => setActiveGroundingStep(idx)}
-                  className={`p-4 rounded-xl border transition-all cursor-pointer flex items-start gap-3.5 ${
-                    isActive 
-                      ? 'bg-[#1e2335] border-[#c5a059] shadow-md' 
-                      : 'bg-[#10121a] border-white/5 hover:border-white/20'
-                  }`}
-                >
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center font-serif font-bold text-sm flex-shrink-0 ${
-                    isActive ? 'bg-[#c5a059] text-black' : 'bg-[#1a1d2c] text-[#dfc58b]'
-                  }`}>
-                    {item.step}
-                  </div>
-                  <div className="space-y-1">
-                    <div className="text-sm font-semibold text-[#fbf9f4] flex items-center gap-2">
-                      <span>{item.sense}</span>
-                      {isActive && <span className="text-[10px] px-2 py-0.5 rounded bg-[#c5a059]/20 text-[#dfc58b]">ACTIVE CUE</span>}
-                    </div>
-                    <p className="text-xs text-[#b8b5ab] leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/30 space-y-1.5">
+            <div className="text-xs uppercase font-bold text-emerald-400">Observation (Biofeedback Anchor)</div>
+            <p className="text-xs text-[#cbc7be] italic">“My breathing is getting slightly fast. My shoulders are tight. I will pause for 5 seconds and exhale smoothly.”</p>
           </div>
-          <p className="text-[11px] text-[#7d808f] italic pt-1">
-            *You do not need to perform this like a military drill. The purpose is simply to interrupt the mental loop and reconnect with the present.
-          </p>
         </div>
       </section>
 
-      {/* MID-ARTICLE PROMOTION CALLOUT */}
-      <div className="my-10 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#181a26] via-[#12141f] to-[#0c0d14] border-2 border-[#c5a059]/40 shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-[#c5a059]/10 rounded-full blur-3xl pointer-events-none" />
+      {/* CHAPTER 3 */}
+      <section id="psych-ch3" className="scroll-mt-24 space-y-5">
+        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4] border-b border-white/10 pb-3">
+          Chapter 3: Arousal, Reward, and Why the Brain Feels Like It Is Rushing
+        </h2>
+        <p>
+          Sexual arousal involves a sophisticated interplay between the brain, autonomic nervous system, dopamine, serotonin, oxytocin, and peripheral sensory nerves.
+        </p>
         
-        <div className="flex flex-col sm:flex-row items-center gap-6 relative z-10">
-          <div className="w-32 flex-shrink-0 cursor-pointer" onClick={onLockerClick}>
-            <BookMockup size="compact" />
-          </div>
+        <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#fbf9f4] pt-3">
+          The Conditioned Habit of Rushing
+        </h3>
+        <p>
+          The human brain is an anticipation machine. In modern life, many men inadvertently train their brains through years of rushed solo sexual activity:
+        </p>
+        <div className="p-4 rounded-xl bg-[#141624] border border-white/10 font-mono text-xs sm:text-sm text-[#dfc58b] space-y-1">
+          <div>High Stimulation → Maximum Friction → Rush to Finish → Instant Reward</div>
+        </div>
+        <p>
+          When you practice rushing hundreds of times, your nervous system learns that the goal of sexual arousal is to reach the finish line as rapidly as possible.
+        </p>
+        <p>
+          Fortunately, neuroplasticity works both ways. You can re-educate your nervous system to tolerate high levels of sensory pleasure without immediately triggering the ejaculatory reflex.
+        </p>
+      </section>
 
-          <div className="space-y-3 text-center sm:text-left flex-1">
-            <span className="text-[11px] font-serif font-bold text-[#dfc58b] tracking-widest uppercase">
-              COMPLETE 68-PAGE CLINICAL GUIDEBOOK
-            </span>
-            <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#fbf9f4] leading-snug">
-              Master the Neuromuscular &amp; Psychological Stamina System
-            </h3>
-            <p className="text-xs sm:text-sm text-[#8e909a] leading-relaxed">
-              Download the official, unabridged digital book complete with daily pelvic rehabilitation charts, autonomic arousal pacing drills, and evidence-backed neuro-anchors.
-            </p>
-            <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
+      {/* INTERACTIVE COGNITIVE REFRAME & GROUNDING TERMINAL */}
+      <div className="my-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-[#161928] via-[#121420] to-[#0e1017] border-2 border-[#c5a059]/40 shadow-2xl space-y-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+          <div>
+            <div className="text-xs font-bold text-[#dfc58b] uppercase tracking-wider flex items-center gap-1.5">
+              <Brain className="w-4 h-4 text-[#c5a059]" />
+              <span>Cognitive Laboratory</span>
+            </div>
+            <h4 className="font-serif font-bold text-xl text-[#fbf9f4]">
+              Real-Time Cognitive Reframe &amp; Somatic Anchor
+            </h4>
+          </div>
+          <div className="flex gap-2">
+            {[
+              { id: 'performance', label: 'Fear of Disappointment' },
+              { id: 'timer', label: 'Clock Watching & Distraction' },
+              { id: 'spectator', label: 'Severe Self-Critique' }
+            ].map(tab => (
               <button
-                onClick={onLockerClick}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#c5a059] text-black font-extrabold text-xs uppercase tracking-wider hover:brightness-110 transition-all cursor-pointer shadow-lg"
+                key={tab.id}
+                onClick={() => { setActiveThoughtPattern(tab.id); setIsGrounded(false); }}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer ${
+                  activeThoughtPattern === tab.id
+                    ? 'bg-[#c5a059] text-black border-[#dfc58b]'
+                    : 'bg-[#181a26] text-[#8e909a] border-white/10 hover:text-[#dedad2]'
+                }`}
               >
-                Instant Free Access (PDF)
+                {tab.label}
               </button>
-              <span className="text-[11px] text-[#7d808f]">100% Free · No Payment Required</span>
+            ))}
+          </div>
+        </div>
+
+        {/* Interactive Reframe Display */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {/* Toxic Thought & Physiological Cost */}
+          <div className="p-5 rounded-2xl bg-rose-950/20 border border-rose-500/30 space-y-3">
+            <div className="text-xs font-bold text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
+              <AlertCircle className="w-4 h-4" />
+              <span>Unconscious Toxic Thought Loop:</span>
+            </div>
+            <p className="text-sm font-serif italic text-[#fbf9f4]">
+              {thoughtScenarios[activeThoughtPattern].toxic}
+            </p>
+            <div className="p-3 rounded-lg bg-black/40 border border-rose-500/20 text-xs text-rose-300/80">
+              <strong>Autonomic Consequence:</strong> {thoughtScenarios[activeThoughtPattern].physiologicalCost}
             </div>
           </div>
+
+          {/* Calibrated Neuro Reframe */}
+          <div className="p-5 rounded-2xl bg-[#121522] border border-[#c5a059]/40 space-y-3">
+            <div className="text-xs font-bold text-[#dfc58b] uppercase tracking-wider flex items-center gap-1.5">
+              <Sparkles className="w-4 h-4 text-[#c5a059]" />
+              <span>Mindful Somatic Reframe:</span>
+            </div>
+            <p className="text-sm font-serif text-[#dedad2] leading-relaxed">
+              {thoughtScenarios[activeThoughtPattern].reframe}
+            </p>
+            <div className="p-3 rounded-lg bg-[#181a28] border border-[#c5a059]/30 text-xs text-[#dfc58b]">
+              <strong>Immediate Somatic Cue:</strong> {thoughtScenarios[activeThoughtPattern].somaticCue}
+            </div>
+          </div>
+        </div>
+
+        {/* Action button */}
+        <div className="pt-2 flex justify-center">
+          <button
+            onClick={() => setIsGrounded(!isGrounded)}
+            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#dfc58b] via-[#c5a059] to-[#b38e47] text-black font-extrabold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 active:scale-95 transition-all cursor-pointer"
+          >
+            <RefreshCw className={`w-4 h-4 ${isGrounded ? 'animate-spin' : ''}`} />
+            <span>{isGrounded ? 'Somatic Reset Calibrated ✓' : 'Practice Grounding Reset'}</span>
+          </button>
         </div>
       </div>
 
-      {/* CHAPTER 5: PAST HABITS AND RESPONSES */}
-      <section id="psy-ch5" className="scroll-mt-24 space-y-6 pt-6 border-t border-white/10">
-        <div className="inline-block text-xs font-serif font-bold text-[#c5a059] tracking-widest uppercase">Chapter 5</div>
-        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4]">
-          How Past Habits Can Shape Your Response
+      {/* CHAPTER 4 */}
+      <section id="psych-ch4" className="scroll-mt-24 space-y-5">
+        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4] border-b border-white/10 pb-3">
+          Chapter 4: Mindfulness and Sensory Focus
         </h2>
         <p>
-          Your sexual habits can become learned patterns.
+          Mindfulness is often misunderstood as sitting cross-legged for hours trying to empty your mind of all thoughts.
         </p>
         <p>
-          For example, some men may have spent years masturbating quickly, rushing because they were worried about privacy, or focusing entirely on reaching orgasm as fast as possible.
-        </p>
-        <p>
-          Over time, the brain can become familiar with a certain pattern:
-        </p>
-        <div className="p-4 rounded-xl bg-[#141724] border border-white/10 text-center font-serif text-base sm:text-lg text-[#dfc58b]">
-          Stimulation → Urgency → Climax
-        </div>
-        <p>
-          That does not mean the pattern is permanent. But changing it may require conscious practice.
+          In sexual physiology, mindfulness simply means <strong>anchoring your attention in real-time physical sensations</strong> without getting hijacked by judgment or future predictions.
         </p>
 
-        <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#e6e2d8] mt-6">
-          Slow Down the Routine
-        </h3>
-        <p>
-          If you are practicing solo, you can experiment with paying attention to the progression of your arousal.
-        </p>
-        <p>
-          Instead of immediately pursuing the strongest possible stimulation, notice when your arousal begins to rise.
-        </p>
-        <p>
-          Pause when necessary. Breathe. Allow the intensity to decrease before continuing.
-        </p>
-        <p>
-          The purpose is not to turn masturbation into a stressful training session. It is to become familiar with your own responses.
-        </p>
-        <p>
-          You are learning that sexual arousal does not always have to move in a straight line toward orgasm. It can rise, settle, rise again, and change over time.
-        </p>
-        <p className="text-xs bg-[#141622] p-4 rounded-xl border border-white/10 text-[#8e909a]">
-          <em>*Note: If you experience pain, distress, or persistent sexual difficulties, speak with a qualified healthcare professional rather than forcing yourself through an uncomfortable training routine.</em>
-        </p>
-      </section>
-
-      {/* CHAPTER 6: BREATHING AS A BRIDGE BETWEEN MIND AND BODY */}
-      <section id="psy-ch6" className="scroll-mt-24 space-y-6 pt-6 border-t border-white/10">
-        <div className="inline-block text-xs font-serif font-bold text-[#c5a059] tracking-widest uppercase">Chapter 6</div>
-        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4]">
-          Breathing as a Bridge Between Mind and Body
-        </h2>
-        <p>
-          One of the fastest ways to notice anxiety is to pay attention to your breathing.
-        </p>
-        <p>
-          When people are nervous, they often breathe more quickly and shallowly. Some hold their breath completely when they become highly focused or stimulated.
-        </p>
-        <p>
-          During sex, this can contribute to a feeling of urgency.
-        </p>
-        <p>
-          Try paying attention to your breath before arousal becomes intense.
-        </p>
-        <ul className="space-y-2 pl-6 list-disc marker:text-[#c5a059]">
-          <li>Inhale comfortably through the nose.</li>
-          <li>Allow your abdomen and lower ribs to move naturally.</li>
-          <li>Exhale slowly and smoothly through the mouth or nose.</li>
-          <li>Do not force huge breaths or hyperventilate. Just aim for steady, natural breathing.</li>
-        </ul>
-
-        {/* INTERACTIVE MUSCLE TENSION MAP */}
-        <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#e6e2d8] mt-6">
-          The Connection to Muscle Tension
-        </h3>
-        <p>
-          Breathing can also help you notice the rest of your body. As you exhale, check these key areas:
-        </p>
-
-        <div className="my-6 p-6 rounded-2xl bg-[#141724] border border-white/10 space-y-4">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-[#dfc58b] uppercase tracking-wider flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span>Full-Body Neuromuscular Tension Scan</span>
-            </span>
-            <span className="text-xs text-[#8e909a]">Check off relaxed zones</span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {tensionAreas.map((area) => {
-              const isChecked = checkedTension[area.key];
-              return (
-                <div 
-                  key={area.key}
-                  onClick={() => toggleTensionCheck(area.key)}
-                  className={`p-4 rounded-xl border transition-all cursor-pointer flex items-start gap-3 ${
-                    isChecked 
-                      ? 'bg-emerald-950/30 border-emerald-500/50' 
-                      : 'bg-[#10121a] border-white/5 hover:border-white/20'
-                  }`}
-                >
-                  <div className={`w-5 h-5 rounded flex items-center justify-center mt-0.5 flex-shrink-0 ${
-                    isChecked ? 'bg-emerald-500 text-black' : 'border border-white/20 bg-black/40'
-                  }`}>
-                    {isChecked && <CheckCircle2 className="w-4 h-4" />}
-                  </div>
-                  <div className="space-y-1 text-xs">
-                    <div className="font-bold text-[#fbf9f4]">{area.name}</div>
-                    <div className="text-[#9fa2b3] leading-relaxed">{area.cue}</div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          <p className="text-[11px] text-[#7d808f] italic pt-1">
-            *The goal is not to become completely limp. Some tension is natural. The goal is to eliminate <strong>unnecessary tension caused by panic</strong>.
-          </p>
-        </div>
-      </section>
-
-      {/* CHAPTER 7: THE PRESSURE TO PERFORM PERFECTLY */}
-      <section id="psy-ch7" className="scroll-mt-24 space-y-6 pt-6 border-t border-white/10">
-        <div className="inline-block text-xs font-serif font-bold text-[#c5a059] tracking-widest uppercase">Chapter 7</div>
-        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4]">
-          The Pressure to Perform Perfectly
-        </h2>
-        <p>
-          Modern expectations around sex can create unrealistic standards.
-        </p>
-        <p>
-          Pornography, social media, jokes between friends, and exaggerated stories can all create the impression that men are supposed to perform perfectly every time:
-        </p>
-        <ul className="space-y-1.5 pl-6 list-disc marker:text-red-400 text-sm text-[#a8abb8]">
-          <li>They are supposed to last indefinitely.</li>
-          <li>They are never supposed to feel nervous.</li>
-          <li>They are never supposed to lose an erection.</li>
-          <li>They are always supposed to know exactly what their partner wants.</li>
-        </ul>
-        <p>
-          Real life is more complicated.
-        </p>
-        <p>
-          Bodies change from day to day. Stress changes. Energy changes. Confidence changes.
-        </p>
-        <p>
-          Trying to become a machine can actually make you less relaxed.
-        </p>
-
-        <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#e6e2d8] mt-6">
-          The Paradox of Trying Too Hard
-        </h3>
-        <p>
-          The harder you try to prove that you are performing well, the more pressure you may create.
-        </p>
-        <p>
-          This does not mean you should stop caring about your partner or stop trying to improve. It means you need to separate <strong>growth</strong> from <strong>self-punishment</strong>.
-        </p>
-        <p>
-          You can work on your stamina without deciding that one difficult experience defines you.
-        </p>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
-          <div className="p-4 rounded-xl bg-red-950/20 border border-red-500/20 text-center space-y-1">
-            <span className="text-[11px] uppercase font-bold text-red-400">Harmful Mindset</span>
-            <div className="font-serif text-base text-[#fbf9f4] italic">“I have to prove myself tonight.”</div>
-          </div>
-          <div className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/20 text-center space-y-1">
-            <span className="text-[11px] uppercase font-bold text-emerald-400">Growth Mindset</span>
-            <div className="font-serif text-base text-[#fbf9f4] italic">“I am learning my body.”</div>
-          </div>
-        </div>
-
-        <p>
-          That shift alone can remove a surprising amount of pressure.
-        </p>
-      </section>
-
-      {/* CHAPTER 8: MENTAL ANCHORS AND VISUALIZATION */}
-      <section id="psy-ch8" className="scroll-mt-24 space-y-6 pt-6 border-t border-white/10">
-        <div className="inline-block text-xs font-serif font-bold text-[#c5a059] tracking-widest uppercase">Chapter 8</div>
-        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4]">
-          Mental Anchors and Visualization
-        </h2>
-        <p>
-          Visualization can be a useful way to support relaxation.
-        </p>
-        <p>
-          The goal is not to convince yourself that your brain has supernatural powers. It is simply to use mental imagery as a cue.
-        </p>
-        <p>
-          For example, when you notice yourself becoming tense, you might imagine your body becoming heavier and more relaxed. Some people visualize a wave moving downward through the body. Others imagine warmth in the shoulders and a softening of the abdomen and pelvic area.
-        </p>
-
-        {/* Featured Image 3: Mental Anchoring Gesture */}
-        <div className="my-8 rounded-2xl overflow-hidden border border-white/10 bg-[#0f1118] shadow-xl">
-          <div className="aspect-[16/9] w-full overflow-hidden bg-black/40">
+        {/* INLINE IMAGE 3: SENSORY FOCUS */}
+        {post.images?.sensoryFocus && (
+          <div className="my-6 rounded-2xl overflow-hidden border border-white/10 bg-[#12141e] shadow-xl">
             <img 
-              src={post.images.anchor} 
-              alt="Physical neuro-anchor touching thumb and forefinger for mindful somatic calm" 
+              src={post.images.sensoryFocus} 
+              alt="Sensory focus, mindful touch, and intimate connection for male sexual control"
               referrerPolicy="no-referrer"
-              className="w-full h-full object-cover"
+              className="w-full h-auto max-h-[440px] object-cover"
             />
+            <div className="p-3 bg-[#0e1017] border-t border-white/10 text-xs text-[#8e909a] flex items-center justify-between">
+              <span>Figure 3: Sensory Grounding: Moving from Future-Oriented Anxiety to Present Somatic Awareness</span>
+              <span className="text-[#dfc58b] font-medium hidden sm:inline">Sensory Physiology</span>
+            </div>
           </div>
-          <div className="p-4 bg-[#141724] border-t border-white/10 text-xs text-[#9fa2b3] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <span><strong>Figure 8.1:</strong> Somatic Neuro-Anchor — Tactile cueing (thumb and index finger) linked with slow diaphragmatic exhalations.</span>
-            <span className="text-[#dfc58b] font-mono text-[11px]">CALM ANCHOR</span>
-          </div>
-        </div>
+        )}
 
-        <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#e6e2d8] mt-6">
-          Creating a Calm Anchor
+        <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#fbf9f4] pt-3">
+          Feel Instead of Evaluating
         </h3>
         <p>
-          You can also create a simple physical reminder of calm:
+          When performance anxiety begins, your attention leaves the present moment and begins generating catastrophic future predictions: <em>“What if I finish right now? What if she thinks I'm inadequate?”</em>
         </p>
-        <div className="p-5 rounded-xl bg-[#141724] border border-white/10 space-y-3">
-          <div className="text-xs font-bold text-[#dfc58b] uppercase tracking-wider flex items-center gap-2">
-            <Hand className="w-4 h-4 text-[#c5a059]" />
-            <span>The 4-Step Neuro-Anchor Protocol</span>
+        <p>
+          Sensory grounding interrupts this cycle by directing your conscious bandwidth to real physical data:
+        </p>
+        <ul className="list-disc pl-6 space-y-1.5 text-sm sm:text-base text-[#dedad2]">
+          <li>The temperature and texture of your partner's skin</li>
+          <li>The sound and cadence of your shared breathing</li>
+          <li>The physical sensation of weight and movement</li>
+          <li>The relaxed release of your own abdominal wall</li>
+        </ul>
+      </section>
+
+      {/* CHAPTER 5 */}
+      <section id="psych-ch5" className="scroll-mt-24 space-y-5">
+        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4] border-b border-white/10 pb-3">
+          Chapter 5: Breaking the Goal-Oriented Mindset
+        </h2>
+        <p>
+          A primary driver of sexual performance anxiety is making a single arbitrary metric—such as surviving 30 minutes without stopping—the sole definition of success.
+        </p>
+        <p>
+          When you turn intimacy into a timed endurance athletic event, you stop experiencing connection and start managing a high-stress crisis.
+        </p>
+
+        <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#fbf9f4] pt-3">
+          Process Awareness vs. Goal Orientation
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
+          <div className="p-4 rounded-xl bg-[#141624] border border-white/10 space-y-2">
+            <div className="font-bold text-xs uppercase text-[#dfc58b]">Goal Orientation (Tension)</div>
+            <p className="text-xs text-[#8e909a]">“I must endure 25 minutes of continuous high-speed movement without pausing or showing weakness.”</p>
           </div>
-          <ol className="space-y-2 text-xs sm:text-sm text-[#b8b5ab] pl-5 list-decimal marker:text-[#c5a059]">
-            <li>During a relaxed, non-sexual moment, sit comfortably and breathe slowly.</li>
-            <li>Gently touch your thumb and forefinger together while exhaling deeply.</li>
-            <li>Repeat this regularly over several weeks while you are genuinely calm.</li>
-            <li>In the bedroom, use this same subtle gesture as a physical cue to slow down, drop tension, and return to breath.</li>
+          <div className="p-4 rounded-xl bg-[#141624] border border-[#c5a059]/40 space-y-2">
+            <div className="font-bold text-xs uppercase text-emerald-400">Process Awareness (Control)</div>
+            <p className="text-xs text-[#dedad2]">“I want to remain calm, breathe deeply, read my partner's cues, and modulate intensity so we both experience deep pleasure.”</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CHAPTER 6 */}
+      <section id="psych-ch6" className="scroll-mt-24 space-y-5">
+        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4] border-b border-white/10 pb-3">
+          Chapter 6: Reconditioning Sexual Habits in Solo Practice
+        </h2>
+        <p>
+          Your neural pathways are shaped by what you practice regularly.
+        </p>
+        <p>
+          If your solo sessions consist of frantic stimulation with clutched breath, tense pelvic floor muscles, and a rush to ejaculate within 3 minutes, your nervous system learns that exact reflex cascade.
+        </p>
+        <p>
+          Reconditioning means using solo practice as a biofeedback laboratory:
+        </p>
+        <ul className="list-disc pl-6 space-y-2 text-sm sm:text-base text-[#dedad2]">
+          <li><strong>Track your tension points:</strong> Notice when your jaw clenches, glutes squeeze, or breathing shallows.</li>
+          <li><strong>Pause before level 7:</strong> Do not wait until level 9.5 (Point of Inevitability) to slow down. Intervene at level 6 or 7 on the 10-point arousal scale.</li>
+          <li><strong>Practice breath anchoring:</strong> Take slow, 360-degree diaphragmatic breaths to down-regulate the nervous system before resuming.</li>
+        </ul>
+      </section>
+
+      {/* CHAPTER 7 & 8 */}
+      <section id="psych-ch7" className="scroll-mt-24 space-y-5">
+        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4] border-b border-white/10 pb-3">
+          Chapter 7 &amp; 8: Breathing Resets, Visualization &amp; Mental Anchors
+        </h2>
+        <p>
+          Breathing is the most accessible neurological lever you have to switch off fight-or-flight activation.
+        </p>
+
+        {/* INLINE IMAGE 4: MENTAL ANCHOR */}
+        {post.images?.mentalAnchor && (
+          <div className="my-6 rounded-2xl overflow-hidden border border-white/10 bg-[#12141e] shadow-xl">
+            <img 
+              src={post.images.mentalAnchor} 
+              alt="Somatic tactile anchoring and mental reset cues for male stamina"
+              referrerPolicy="no-referrer"
+              className="w-full h-auto max-h-[440px] object-cover"
+            />
+            <div className="p-3 bg-[#0e1017] border-t border-white/10 text-xs text-[#8e909a] flex items-center justify-between">
+              <span>Figure 4: Establishing Somatic &amp; Tactile Anchors to Rapidly Interrupt Autonomic Escalation</span>
+              <span className="text-[#dfc58b] font-medium hidden sm:inline">Tactile Calibration</span>
+            </div>
+          </div>
+        )}
+
+        <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#fbf9f4] pt-3">
+          The Cooling Visualization
+        </h3>
+        <p>
+          When arousal feels like a raging fire building in the pelvis, visualize cool, blue, refreshing water or air flowing down from the crown of your head through your spine and diffusing excess heat throughout your entire body.
+        </p>
+        <p>
+          This visualization replaces panicky internal commands (<em>“Don't finish! Don't finish!”</em>) with an expansive, calming physiological directive (<em>“Cool, soften, expand, breathe”</em>).
+        </p>
+
+        <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#fbf9f4] pt-3">
+          The Physical Anchor Cue
+        </h3>
+        <p>
+          During daily meditation or relaxed breathing, establish a physical anchor—such as pressing your thumb and forefinger together while exhaling. Over repeated pairings, this physical cue acts as an instant neurological reminder to down-regulate tension during intimacy.
+        </p>
+      </section>
+
+      {/* CHAPTER 9 & 10 */}
+      <section id="psych-ch9" className="scroll-mt-24 space-y-5">
+        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4] border-b border-white/10 pb-3">
+          Chapter 9 &amp; 10: Dismantling the “Perfect Performer” Myth &amp; Stopping Overthinking
+        </h2>
+        <p>
+          Many men carry unrealistic expectations into the bedroom: they believe they must always be an unshakeable machine, never showing vulnerability, fatigue, or momentary loss of control.
+        </p>
+        <p>
+          Real intimacy is a shared human connection, not an exam.
+        </p>
+
+        <div className="p-5 rounded-2xl bg-[#151828] border border-[#c5a059]/40 space-y-3">
+          <div className="text-xs text-[#dfc58b] font-bold uppercase tracking-wider flex items-center gap-2">
+            <Zap className="w-4 h-4 text-[#c5a059]" />
+            <span>The 5-Step In-the-Moment Mental Reset:</span>
+          </div>
+          <ol className="space-y-2 text-sm text-[#dedad2] list-decimal pl-5">
+            <li><strong>Notice the anxious thought</strong> without judging yourself for having it.</li>
+            <li><strong>Unclench one physical body part</strong> immediately (separate your teeth, drop your jaw).</li>
+            <li><strong>Perform 1 extended exhale</strong> through relaxed, parted lips.</li>
+            <li><strong>Redirect your senses</strong> to an external physical texture or your partner's breathing.</li>
+            <li><strong>Communicate openly</strong>: <em>“Let’s slow down for a moment and enjoy this rhythm.”</em></li>
           </ol>
         </div>
-        <p>
-          The gesture itself is not magic. Its value comes from repetition and association. Over time, it becomes a personal cue that reminds you: <strong>Slow down. Breathe. Relax. Pay attention.</strong>
-        </p>
       </section>
 
-      {/* CHAPTER 9: COMMUNICATION REDUCES PRESSURE */}
-      <section id="psy-ch9" className="scroll-mt-24 space-y-6 pt-6 border-t border-white/10">
-        <div className="inline-block text-xs font-serif font-bold text-[#c5a059] tracking-widest uppercase">Chapter 9</div>
-        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4]">
-          Communication Can Reduce Performance Pressure
-        </h2>
-        <p>
-          Silence can make performance anxiety worse.
-        </p>
-        <p>
-          If you are struggling internally but trying to hide every sign of it, the pressure can build.
-        </p>
-        <p>
-          Communication gives you another option. You do not need to announce every thought in your head. But you can make slowing down feel normal:
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-4">
-          <div className="p-4 rounded-xl bg-[#12141f] border border-white/10 text-center font-serif text-sm text-[#dfc58b] italic">
-            “Let's slow down for a moment.”
-          </div>
-          <div className="p-4 rounded-xl bg-[#12141f] border border-white/10 text-center font-serif text-sm text-[#dfc58b] italic">
-            “I want to take my time with you.”
-          </div>
-          <div className="p-4 rounded-xl bg-[#12141f] border border-white/10 text-center font-serif text-sm text-[#dfc58b] italic">
-            “Let's enjoy this pace.”
-          </div>
-        </div>
-
-        <p>
-          A supportive sexual experience does not require nonstop intensity.
-        </p>
-        <ul className="space-y-2 pl-6 list-disc marker:text-[#c5a059]">
-          <li>Taking a break is not failure.</li>
-          <li>Changing pace is not failure.</li>
-          <li>Communicating your needs is not failure.</li>
-        </ul>
-        <p>
-          In fact, being able to communicate can often make the experience more relaxed for both people.
-        </p>
-        <p>
-          Sex is shared. You do not have to carry the entire experience like a solo performance.
-        </p>
-      </section>
-
-      {/* CHAPTER 10: FAQS ACCORDION */}
-      <section id="psy-ch10" className="scroll-mt-24 space-y-6 pt-6 border-t border-white/10">
-        <div className="inline-block text-xs font-serif font-bold text-[#c5a059] tracking-widest uppercase">Chapter 10</div>
-        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4]">
-          Common Questions About the Psychology of Stamina
+      {/* CHAPTER 11: FAQ */}
+      <section id="psych-faq" className="scroll-mt-24 space-y-6">
+        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4] border-b border-white/10 pb-3">
+          FAQ: The Psychology of Sexual Stamina
         </h2>
 
-        <div className="space-y-3 mt-4">
-          {post.faqs?.map((faq, index) => {
-            const isOpen = activeFaq === index;
-            return (
-              <div 
-                key={index}
-                className="rounded-xl border border-white/10 bg-[#12141e] overflow-hidden transition-all"
+        <div className="space-y-3">
+          {[
+            {
+              q: "Is distraction (like thinking about baseball or math) a good way to last longer?",
+              a: "While mental distraction can briefly reduce arousal in the short term, it severs your connection to your body and your partner. You lose somatic biofeedback, making it impossible to notice when you are crossing the point of no return. Mindful presence and pacing are vastly superior long-term strategies."
+            },
+            {
+              q: "Can high work stress outside the bedroom ruin sexual stamina?",
+              a: "Yes. Chronic workplace stress elevates baseline cortisol and sympathetic nervous system tone. When you enter intimacy with an overstimulated sympathetic nervous system, your ejaculatory threshold is significantly lowered."
+            },
+            {
+              q: "Why do I feel completely in control with some partners, but finish rapidly with others?",
+              a: "Novelty, emotional vulnerability, and perceived performance pressure all influence amygdala activation. When you feel a high need to impress a new partner, performance anxiety surges, triggering involuntary muscle tension and accelerated reflex firing."
+            },
+            {
+              q: "Can psychological anxiety alone cause lifelong premature ejaculation?",
+              a: "Anxiety is a primary exacerbating factor for acquired premature ejaculation, but lifelong PE often involves biological, neurochemical (serotonergic), and physiological variables. A comprehensive approach addresses both physical and psychological components."
+            },
+            {
+              q: "How long does it take to rewire conditioned sexual habits?",
+              a: "Most men begin experiencing noticeable cognitive shifts within 2 to 4 weeks of consistent mindful solo practice and somatic relaxation. Deep autonomic reconditioning typically solidifies over 8 to 12 weeks."
+            }
+          ].map((faq, idx) => (
+            <div 
+              key={idx} 
+              className="rounded-xl border border-white/10 bg-[#12141e] overflow-hidden transition-all"
+            >
+              <button
+                onClick={() => toggleFaq(idx)}
+                className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-[#181a28] transition-colors cursor-pointer"
               >
-                <button
-                  onClick={() => toggleFaq(index)}
-                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 text-[#fbf9f4] hover:text-[#dfc58b] transition-colors cursor-pointer"
-                >
-                  <span className="font-serif font-bold text-sm sm:text-base">{faq.q}</span>
-                  {isOpen ? (
-                    <ChevronUp className="w-4 h-4 text-[#c5a059] flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-4 h-4 text-[#8e909a] flex-shrink-0" />
-                  )}
-                </button>
-                {isOpen && (
-                  <div className="px-4 pb-5 sm:px-5 sm:pb-6 text-xs sm:text-sm text-[#b8b5ab] leading-relaxed border-t border-white/5 pt-3">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                <span className="font-serif font-bold text-base sm:text-lg text-[#fbf9f4]">
+                  {faq.q}
+                </span>
+                <span className="p-1 rounded-md bg-[#1e2234] text-[#c5a059] flex-shrink-0">
+                  {activeFaq === idx ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                </span>
+              </button>
+              
+              {activeFaq === idx && (
+                <div className="px-4 sm:px-5 pb-5 pt-1 text-sm sm:text-base text-[#cbc7be] leading-relaxed border-t border-white/5 bg-[#0f1118]">
+                  {faq.a}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
       {/* CONCLUSION */}
-      <section id="psy-conclusion" className="scroll-mt-24 space-y-6 pt-6 border-t border-white/10">
-        <div className="inline-block text-xs font-serif font-bold text-[#c5a059] tracking-widest uppercase">Conclusion</div>
+      <section id="psych-conclusion" className="scroll-mt-24 space-y-6 pt-6 border-t border-white/10">
         <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fbf9f4]">
-          Stop Treating Sex Like a Test
+          Conclusion: Mastering the Mind Means Working With Yourself
         </h2>
         <p>
-          The psychology of stamina may be one of the most overlooked parts of sexual performance.
+          Sexual stamina is not purely physical. Your muscles matter. Your breathing matters. Your hormonal health matters.
         </p>
         <p>
-          You can improve your diet. You can exercise. You can practice pelvic awareness. You can learn breathing techniques.
+          <strong>But your mind is the central operating system.</strong>
         </p>
         <p>
-          But if every sexual experience begins with the thought, <strong>“I hope I don't fail,”</strong> you may still be creating the pressure that works against you.
+          If you enter every intimate encounter expecting failure, monitoring every sensation through a lens of fear, and judging yourself against unrealistic standards, your body will respond with fight-or-flight tension.
         </p>
         <p>
-          The solution is not to stop caring. It is to stop treating intimacy as an exam.
-        </p>
-        
-        <div className="my-6 p-6 rounded-2xl bg-gradient-to-r from-[#171a26] to-[#12141f] border-l-4 border-[#c5a059] space-y-3">
-          <h4 className="font-serif font-bold text-lg text-[#fbf9f4]">The Core Takeaways:</h4>
-          <ul className="space-y-2 text-xs sm:text-sm text-[#d4cfc3] list-disc pl-5 marker:text-[#c5a059]">
-            <li>You do not need to be perfect.</li>
-            <li>You do not need to monitor every second.</li>
-            <li>You do not need to panic every time arousal increases.</li>
-            <li>Instead, learn your body's signals. Recognize when tension is building. Slow down when needed. Breathe naturally. Communicate with your partner. Bring your attention back to the present.</li>
-          </ul>
-        </div>
-
-        <p>
-          Real control is not about suppressing every sensation. It is about staying aware enough to respond before panic takes over.
-        </p>
-        <p>
-          The body and mind work together. When you learn to calm unnecessary mental pressure, you give yourself a better opportunity to use the physical skills you are developing.
-        </p>
-        
-        <p className="font-serif text-lg text-[#dfc58b] italic font-semibold">
-          The Art of Stamina is not about becoming a machine. It is about becoming more present, more aware, and more confident in your ability to understand your own body.
+          When you stop treating intimacy like a performance you must survive, you create the internal space to genuinely experience and master it.
         </p>
 
-        {/* READY TO BUILD ON THIS FOUNDATION CTA */}
-        <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-[#141724] border border-[#c5a059]/40 space-y-4">
-          <h3 className="font-serif font-bold text-xl text-[#fbf9f4]">
-            Ready to Build on This Foundation?
+        {/* READY TO BUILD STAMINA SYSTEM CTA BOX */}
+        <div className="my-8 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#1b1e2c] via-[#12141f] to-[#1a1c2b] border-2 border-[#c5a059] shadow-2xl space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c5a059]/20 text-[#dfc58b] text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-[#c5a059]" />
+            <span>Complete Curriculum</span>
+          </div>
+          <h3 className="font-serif font-bold text-2xl text-[#fbf9f4]">
+            Ready to Build a More Complete Stamina System?
           </h3>
-          <p className="text-xs sm:text-sm text-[#b8b5ab] leading-relaxed">
-            Mental awareness is one important piece of a larger approach to sexual confidence and control. Combine psychological skills with healthy lifestyle habits, good communication, and practical body awareness.
+          <p className="text-sm text-[#cbc7be] leading-relaxed">
+            Mental control is only one part of the bigger <strong>Art of Stamina</strong> approach. Better sexual confidence also involves understanding your arousal patterns, practicing diaphragmatic breathing, pelvic relaxation, physical fitness, communication, and healthier lifestyle habits.
           </p>
-          <div className="pt-2">
-            <button
+          <p className="text-sm text-[#cbc7be] leading-relaxed">
+            The complete <strong>Art of Stamina Mastery eBook</strong> brings these principles together into one structured system designed to help you build greater body awareness, confidence, and practical control.
+          </p>
+          
+          <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
+            <a
+              href="javascript:void(0);"
               onClick={onLockerClick}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#c5a059] text-black font-extrabold text-xs uppercase tracking-wider hover:brightness-110 transition-all cursor-pointer shadow-lg"
+              className="w-full sm:w-auto text-center py-3.5 px-8 rounded-xl bg-gradient-to-r from-[#dfc58b] via-[#c5a059] to-[#b38e47] text-[#0b0c10] font-extrabold text-xs tracking-wider uppercase shadow-xl hover:brightness-110 active:scale-95 transition-all no-underline cursor-pointer"
             >
-              <Sparkles className="w-4 h-4" />
-              <span>Explore Complete Art of Stamina Program (Free PDF)</span>
-            </button>
+              DOWNLOAD FREE EBOOK (PDF)
+            </a>
+            <span className="text-xs text-[#8e909a]">Includes complete 68-page PDF, worksheets &amp; routines</span>
           </div>
         </div>
 
-        {/* MEDICAL DISCLAIMER FOOTER NOTE */}
-        <p className="text-[11px] text-[#7d808f] italic border-t border-white/10 pt-4">
-          *This article is for educational purposes and is not a substitute for professional medical or mental health advice. If sexual anxiety or performance concerns are persistent or significantly affecting your wellbeing or relationships, consider speaking with a qualified healthcare professional.
-        </p>
+        {/* MEDICAL DISCLAIMER */}
+        <div className="p-4 rounded-xl bg-[#0e1017] border border-white/5 text-[11px] text-[#6b6d76] leading-relaxed">
+          <strong>Medical Disclaimer:</strong> This article is for educational purposes only and does not replace professional medical advice. If you experience persistent premature ejaculation, erectile difficulties, severe performance anxiety, or other ongoing sexual health concerns, consider speaking with a qualified healthcare professional.
+        </div>
       </section>
 
     </div>

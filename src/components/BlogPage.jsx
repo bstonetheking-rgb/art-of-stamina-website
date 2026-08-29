@@ -336,7 +336,9 @@ export default function BlogPage({ onBackToHome, onOpenGuide, onOpenLegal, initi
 
           {/* MAIN ARTICLE BODY (RIGHT 8 COLS) */}
           <article className="lg:col-span-8">
-            {selectedArticleId === 'the-endocrine-architecture-testosterone-stamina-axis' ? (
+            {selectedArticleId === 'the-psychology-of-stamina-rewiring-brain-performance' || selectedArticleId === 'psychology-of-stamina-mental-control' ? (
+              <ArticlePsychology post={currentArticle} onLockerClick={handleLockerClick} />
+            ) : selectedArticleId === 'the-endocrine-architecture-testosterone-stamina-axis' ? (
               <ArticleEndocrine post={currentArticle} onLockerClick={handleLockerClick} />
             ) : selectedArticleId === 'the-breath-of-stamina-arousal-control-breathwork' ? (
               <ArticleBreathMastery post={currentArticle} onLockerClick={handleLockerClick} />
@@ -346,8 +348,6 @@ export default function BlogPage({ onBackToHome, onOpenGuide, onOpenLegal, initi
               <ArticleSoloLab post={currentArticle} onLockerClick={handleLockerClick} />
             ) : selectedArticleId === 'stamina-lifestyle-daily-habits' ? (
               <ArticleLifestyle post={currentArticle} onLockerClick={handleLockerClick} />
-            ) : selectedArticleId === 'psychology-of-stamina-mental-control' ? (
-              <ArticlePsychology post={currentArticle} onLockerClick={handleLockerClick} />
             ) : selectedArticleId === 'nitric-oxide-blueprint-nutrition' ? (
               <ArticleNitricOxide post={currentArticle} onLockerClick={handleLockerClick} />
             ) : (
