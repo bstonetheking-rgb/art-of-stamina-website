@@ -30,6 +30,7 @@ import ArticleSoloLab from './articles/ArticleSoloLab';
 import ArticleRefractory from './articles/ArticleRefractory';
 import ArticleBreathMastery from './articles/ArticleBreathMastery';
 import ArticleEndocrine from './articles/ArticleEndocrine';
+import ArticleLongevity from './articles/ArticleLongevity';
 import { triggerContentLocker } from '../utils/locker';
 
 export default function BlogPage({ onBackToHome, onOpenGuide, onOpenLegal, initialArticleId }) {
@@ -336,7 +337,9 @@ export default function BlogPage({ onBackToHome, onOpenGuide, onOpenLegal, initi
 
           {/* MAIN ARTICLE BODY (RIGHT 8 COLS) */}
           <article className="lg:col-span-8">
-            {selectedArticleId === 'the-psychology-of-stamina-rewiring-brain-performance' || selectedArticleId === 'psychology-of-stamina-mental-control' ? (
+            {selectedArticleId === 'the-longevity-protocol-age-proofing-sexual-stamina' ? (
+              <ArticleLongevity post={currentArticle} onLockerClick={handleLockerClick} />
+            ) : selectedArticleId === 'the-psychology-of-stamina-rewiring-brain-performance' || selectedArticleId === 'psychology-of-stamina-mental-control' ? (
               <ArticlePsychology post={currentArticle} onLockerClick={handleLockerClick} />
             ) : selectedArticleId === 'the-endocrine-architecture-testosterone-stamina-axis' ? (
               <ArticleEndocrine post={currentArticle} onLockerClick={handleLockerClick} />

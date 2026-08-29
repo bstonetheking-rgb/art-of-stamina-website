@@ -52,7 +52,50 @@ import spectatoringChartImg from '../assets/images/spectatoring_loop_chart_17880
 import sensoryFocusImg from '../assets/images/sensory_grounding_focus_1788019341435.jpg';
 import mentalAnchorImg from '../assets/images/mental_anchor_reset_1788019354959.jpg';
 
+// Asset paths for Longevity Protocol article
+import longevityHeroImg from '../assets/images/longevity_hero_img_1788023627023.jpg';
+import vascularMitochondriaImg from '../assets/images/vascular_mitochondria_chart_1788023639933.jpg';
+import longevityStrengthImg from '../assets/images/longevity_strength_training_1788023652549.jpg';
+import decadeRoadmapImg from '../assets/images/decade_roadmap_infographic_1788023664716.jpg';
+
 export const BLOG_POSTS = [
+  {
+    id: "the-longevity-protocol-age-proofing-sexual-stamina",
+    slug: "the-longevity-protocol-age-proofing-sexual-stamina",
+    title: "The Longevity Protocol: Age-Proofing Your Sexual Stamina — The Science of Lifetime Performance",
+    fullTitle: "The Longevity Protocol: Age-Proofing Your Sexual Stamina — The Science of Lifetime Performance",
+    subtitle: "How to prevent age-related stamina decline through vascular elasticity, sarcopenia defense, mitochondrial biogenesis, and prostate stewardship.",
+    publishedDate: "August 2026",
+    readTime: "16 min read",
+    category: "Longevity & Anti-Aging",
+    targetKeywords: "Sexual longevity for men, prevent age-related stamina decline, prostate health and stamina, mitochondria and sexual energy, anti-aging biohacking for men, sexual health in your 40s 50s and 60s",
+    author: {
+      name: "Art of Stamina Longevity Lab",
+      role: "Gerontology & Metabolic Vitality",
+      avatar: "TIME"
+    },
+    heroImage: longevityHeroImg,
+    heroImageAlt: "Male sexual longevity, age-proofing stamina, and lifetime performance",
+    images: {
+      hero: longevityHeroImg,
+      vascularChart: vascularMitochondriaImg,
+      strengthTraining: longevityStrengthImg,
+      decadeRoadmap: decadeRoadmapImg,
+    },
+    toc: [
+      { id: "longevity-intro", title: "Introduction: The Myth of the Inevitable Decline" },
+      { id: "longevity-ch1", title: "1. Biological Age vs. Chronological Age & The Vascular Clock" },
+      { id: "longevity-ch2", title: "2. Muscle Mass, Sarcopenia & The Pelvic Floor" },
+      { id: "longevity-ch3", title: "3. Mitochondria — Cellular Foundation of Energy" },
+      { id: "longevity-ch4", title: "4. Prostate Health and Long-Term Wellbeing" },
+      { id: "longevity-ch5", title: "5. Neuroplasticity & The Brain-Body Connection" },
+      { id: "longevity-ch6", title: "6. Advanced Vascular Maintenance & Clean Pipes" },
+      { id: "longevity-ch7", title: "7 & 8. Hormonal Longevity & Regenerative Medicine Realities" },
+      { id: "longevity-ch9", title: "9 & 10. The Mature Man’s Mastery Mindset" },
+      { id: "longevity-faq", title: "FAQ: Age-Proofing Your Sexual Stamina" },
+      { id: "longevity-conclusion", title: "Conclusion: Build a Legacy of Health & Complete Curriculum" },
+    ],
+  },
   {
     id: "the-psychology-of-stamina-rewiring-brain-performance",
     slug: "the-psychology-of-stamina-rewiring-brain-performance",
