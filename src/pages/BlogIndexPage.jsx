@@ -31,7 +31,7 @@ export default function BlogIndexPage({ onOpenGuide }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [copiedSlug, setCopiedSlug] = useState(null);
 
-  const categories = ['All', 'Lifestyle & Daily Physiology', 'Mindset & Autonomic Psychology', 'Performance Nutrition & Circulation', 'Masculine Health & Intimacy'];
+  const categories = ['All', ...Array.from(new Set(BLOG_POSTS.map(p => p.category).filter(Boolean)))];
 
   const filteredPosts = BLOG_POSTS.filter(post => {
     const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;

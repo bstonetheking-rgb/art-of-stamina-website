@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Heart, 
   Activity, 
@@ -8,7 +9,9 @@ import {
   ChevronDown, 
   ChevronUp, 
   Calendar, 
-  ShieldCheck 
+  ShieldCheck,
+  ArrowUpRight,
+  BookOpen
 } from 'lucide-react';
 import BookMockup from '../BookMockup';
 
@@ -169,6 +172,29 @@ export default function ArticleStamina({ post, onLockerClick }) {
               <span><strong>Maintain normal tone:</strong> Do NOT push forcefully like bearing down during bowel movements. It should feel like a deep, relaxing sigh into your pelvic bowl.</span>
             </li>
           </ul>
+        </div>
+
+        {/* COMPANION INTERLINK: BIOMECHANICAL BLUEPRINT */}
+        <div className="my-5 p-4 rounded-xl bg-[#141624] border border-[#c5a059]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="space-y-0.5">
+            <div className="text-[10px] text-[#dfc58b] font-bold uppercase tracking-wider flex items-center gap-1">
+              <BookOpen className="w-3.5 h-3.5 text-[#c5a059]" />
+              <span>Companion Masterclass</span>
+            </div>
+            <div className="text-sm font-serif font-bold text-[#fbf9f4]">
+              [The Biomechanical Blueprint] Pelvic Floor Synergy &amp; The Kinetic Chain
+            </div>
+            <div className="text-xs text-[#8e909a]">
+              Why the pelvic floor cannot be trained in isolation: Discover the TVA, glute scaffolding, and adductor slack.
+            </div>
+          </div>
+          <Link
+            to="/blog/pelvic-floor-synergy-functional-kinetic-chain-stamina"
+            className="flex-shrink-0 inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-[#c5a059]/20 hover:bg-[#c5a059] text-[#dfc58b] hover:text-black text-xs font-bold transition-all no-underline"
+          >
+            <span>Read Biomechanics Blueprint</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
       </section>
 

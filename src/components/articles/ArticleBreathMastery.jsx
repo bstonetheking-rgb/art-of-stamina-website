@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Activity, 
   Sparkles, 
@@ -21,7 +22,9 @@ import {
   Play,
   Pause,
   Compass,
-  Layers
+  Layers,
+  ArrowUpRight,
+  BookOpen
 } from 'lucide-react';
 import BookMockup from '../BookMockup';
 
@@ -234,6 +237,29 @@ export default function ArticleBreathMastery({ post, onLockerClick }) {
         <p>
           The goal is not to aggressively push the pelvic floor down every time you inhale. You should not strain or force a “reverse Kegel” with every breath.
         </p>
+
+        {/* COMPANION INTERLINK: BIOMECHANICAL BLUEPRINT */}
+        <div className="my-5 p-4 rounded-xl bg-[#141624] border border-[#c5a059]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="space-y-0.5">
+            <div className="text-[10px] text-[#dfc58b] font-bold uppercase tracking-wider flex items-center gap-1">
+              <BookOpen className="w-3.5 h-3.5 text-[#c5a059]" />
+              <span>Full Biomechanical Kinetic Chain</span>
+            </div>
+            <div className="text-sm font-serif font-bold text-[#fbf9f4]">
+              [The Biomechanical Blueprint] Pelvic Floor Synergy
+            </div>
+            <div className="text-xs text-[#8e909a]">
+              See how diaphragmatic excursion links with the Transverse Abdominis and the Deep Front Line myofascial sling.
+            </div>
+          </div>
+          <Link
+            to="/blog/pelvic-floor-synergy-functional-kinetic-chain-stamina"
+            className="flex-shrink-0 inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-[#c5a059]/20 hover:bg-[#c5a059] text-[#dfc58b] hover:text-black text-xs font-bold transition-all no-underline"
+          >
+            <span>Explore Biomechanical Blueprint</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
 
         {/* INLINE IMAGE 2 */}
         {post.images?.diaphragmLoop && (

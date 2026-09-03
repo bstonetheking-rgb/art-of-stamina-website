@@ -58,7 +58,97 @@ import vascularMitochondriaImg from '../assets/images/vascular_mitochondria_char
 import longevityStrengthImg from '../assets/images/longevity_strength_training_1788023652549.jpg';
 import decadeRoadmapImg from '../assets/images/decade_roadmap_infographic_1788023664716.jpg';
 
+// Asset paths for Biomechanical Blueprint / Pelvic Floor Synergy article
+import biomechHeroImg from '../assets/images/biomech_hero_kinetic_1788436609854.jpg';
+import deepFrontLineImg from '../assets/images/deep_front_line_1788436625912.jpg';
+import hipMobilityImg from '../assets/images/hip_mobility_glute_1788436640290.jpg';
+import hooklyingResetImg from '../assets/images/hooklying_reset_posture_1788436653400.jpg';
+
+// Asset paths for Neural Reset / Dopamine Fasting article
+import dopamineResetHeroImg from '../assets/images/dopamine_reset_hero_1788439094798.jpg';
+import d2ReceptorImg from '../assets/images/d2_receptor_downregulation_1788439111554.jpg';
+import reset30DayTimelineImg from '../assets/images/reset_30day_timeline_1788439126195.jpg';
+import sensateFocusMindfulImg from '../assets/images/sensate_focus_mindful_1788439141175.jpg';
+
 export const BLOG_POSTS = [
+  {
+    id: "dopamine-fasting-neurological-desensitization-stamina",
+    slug: "dopamine-fasting-neurological-desensitization-stamina",
+    title: "Dopamine Fasting and Neurological Desensitization: Rewiring the Brain for Elite Stamina",
+    fullTitle: "[The Neural Reset] Dopamine Fasting and Neurological Desensitization: Rewiring the Brain for Elite Stamina",
+    subtitle: "How digital super-stimuli and pornography hijack involuntary arousal—and the 30-day clinical protocol to restore D2 receptor sensitivity and master neurological composure.",
+    publishedDate: "September 2026",
+    readTime: "17 min read",
+    category: "Neurobiology & Mindset",
+    targetKeywords: "Dopamine fasting for stamina, sexual desensitization techniques, porn-induced performance issues, rewire brain for sexual health, dopamine receptors and stamina, neurological arousal control, sexual performance biohacking",
+    author: {
+      name: "Art of Stamina Neurobiology Lab",
+      role: "Cognitive Neuroscience & Sexual Health",
+      avatar: "NEURAL"
+    },
+    heroImage: dopamineResetHeroImg,
+    heroImageAlt: "Dopamine fasting, neural reset, rewiring the brain for sexual stamina and arousal control",
+    images: {
+      hero: dopamineResetHeroImg,
+      d2Receptor: d2ReceptorImg,
+      timeline30Day: reset30DayTimelineImg,
+      sensateFocus: sensateFocusMindfulImg,
+    },
+    toc: [
+      { id: "neural-intro", title: "Introduction: The Digital Overload Crisis" },
+      { id: "neural-ch1", title: "1. The Biology of the Reward Circuit" },
+      { id: "neural-ch2", title: "2. The Downregulation of D2 Receptors" },
+      { id: "neural-ch3", title: "3. Delta-FosB — The 'Addiction' Protein" },
+      { id: "neural-ch4", title: "4. The Porn-Induced Sensitivity Paradox" },
+      { id: "neural-ch5", title: "5. The 30-Day 'Prestige' Dopamine Reset" },
+      { id: "neural-ch6", title: "6. Micro-Dosing Pleasure — Sensate Focus 2.0" },
+      { id: "neural-ch7", title: "7. Delayed Gratification as a Stamina Tool" },
+      { id: "neural-ch8", title: "8. Supplements for Neural Recovery" },
+      { id: "neural-ch9", title: "9. Mindful Consumption & The Digital Diet" },
+      { id: "neural-assessment", title: "Interactive: Dopamine Sensitivity Diagnostic" },
+      { id: "neural-faq", title: "FAQ: Neurological Desensitization" },
+      { id: "neural-conclusion", title: "Conclusion: Reclaiming the Neural Throne" },
+    ],
+  },
+  {
+    id: "pelvic-floor-synergy-functional-kinetic-chain-stamina",
+    slug: "pelvic-floor-synergy-functional-kinetic-chain-stamina",
+    title: "Pelvic Floor Synergy: The Functional Kinetic Chain of Stamina",
+    fullTitle: "[The Biomechanical Blueprint] Pelvic Floor Synergy: The Functional Kinetic Chain of Stamina",
+    subtitle: "Why isolated Kegels fail: How your core, glutes, inner thighs, breathing mechanics, and myofascial Deep Front Line coordinate for involuntary sexual endurance.",
+    publishedDate: "September 2026",
+    readTime: "15 min read",
+    category: "Functional Biomechanics",
+    targetKeywords: "Pelvic floor synergy, kinetic chain and stamina, transverse abdominis and sexual health, glute-stamina link, adductor tension and performance, functional sexual health, biomechanics of stamina",
+    author: {
+      name: "Art of Stamina Biomechanics Lab",
+      role: "Functional Movement & Pelvic Health",
+      avatar: "KINETIC"
+    },
+    heroImage: biomechHeroImg,
+    heroImageAlt: "Pelvic floor synergy, the functional kinetic chain of stamina, core stability and biomechanics",
+    images: {
+      hero: biomechHeroImg,
+      deepFrontLine: deepFrontLineImg,
+      hipMobility: hipMobilityImg,
+      hooklying: hooklyingResetImg,
+    },
+    toc: [
+      { id: "biomech-intro", title: "Introduction: Your Pelvic Floor Doesn't Work Alone" },
+      { id: "biomech-ch1", title: "1. The Deep Front Line — Your Body's Internal Highway" },
+      { id: "biomech-ch2", title: "2. Transverse Abdominis — Internal Pressure Manager" },
+      { id: "biomech-ch3", title: "3. The Glute-Stamina Link — Pelvic Scaffolding" },
+      { id: "biomech-ch4", title: "4. The Adductor Short-Circuit & Inner-Thigh Tension" },
+      { id: "biomech-ch5", title: "5. Obturator Internus — The Hidden Hip Muscle" },
+      { id: "biomech-ch6", title: "6. The Full-Body Reverse Kegel" },
+      { id: "biomech-ch7", title: "7. Postural Biohacking & The Hooklying Reset" },
+      { id: "biomech-ch8", title: "8. Mobility for Stamina — The Prestige Protocol" },
+      { id: "biomech-ch9", title: "9. Neural Integration & The Plank-Drop Drill" },
+      { id: "biomech-ch10", title: "10. The 10-Minute Kinetic Chain Reset Routine" },
+      { id: "biomech-faq", title: "FAQ: Biomechanics and Sexual Stamina" },
+      { id: "biomech-conclusion", title: "Conclusion: The Integrated Performer & Masterclass" },
+    ],
+  },
   {
     id: "the-longevity-protocol-age-proofing-sexual-stamina",
     slug: "the-longevity-protocol-age-proofing-sexual-stamina",

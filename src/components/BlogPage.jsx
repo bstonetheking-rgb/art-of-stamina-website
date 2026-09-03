@@ -31,6 +31,8 @@ import ArticleRefractory from './articles/ArticleRefractory';
 import ArticleBreathMastery from './articles/ArticleBreathMastery';
 import ArticleEndocrine from './articles/ArticleEndocrine';
 import ArticleLongevity from './articles/ArticleLongevity';
+import ArticleBiomechanics from './articles/ArticleBiomechanics';
+import ArticleDopamineReset from './articles/ArticleDopamineReset';
 import { triggerContentLocker } from '../utils/locker';
 
 export default function BlogPage({ onBackToHome, onOpenGuide, onOpenLegal, initialArticleId }) {
@@ -339,7 +341,11 @@ export default function BlogPage({ onBackToHome, onOpenGuide, onOpenLegal, initi
 
           {/* MAIN ARTICLE BODY (RIGHT 8 COLS) */}
           <article className="lg:col-span-8">
-            {selectedArticleId === 'the-longevity-protocol-age-proofing-sexual-stamina' ? (
+            {selectedArticleId === 'dopamine-fasting-neurological-desensitization-stamina' ? (
+              <ArticleDopamineReset post={currentArticle} onLockerClick={handleLockerClick} />
+            ) : selectedArticleId === 'pelvic-floor-synergy-functional-kinetic-chain-stamina' ? (
+              <ArticleBiomechanics post={currentArticle} onLockerClick={handleLockerClick} />
+            ) : selectedArticleId === 'the-longevity-protocol-age-proofing-sexual-stamina' ? (
               <ArticleLongevity post={currentArticle} onLockerClick={handleLockerClick} />
             ) : selectedArticleId === 'the-psychology-of-stamina-rewiring-brain-performance' || selectedArticleId === 'psychology-of-stamina-mental-control' ? (
               <ArticlePsychology post={currentArticle} onLockerClick={handleLockerClick} />
