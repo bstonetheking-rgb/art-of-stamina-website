@@ -70,7 +70,52 @@ import d2ReceptorImg from '../assets/images/d2_receptor_downregulation_178843911
 import reset30DayTimelineImg from '../assets/images/reset_30day_timeline_1788439126195.jpg';
 import sensateFocusMindfulImg from '../assets/images/sensate_focus_mindful_1788439141175.jpg';
 
+// Asset paths for Pelvic Freedom / Yoga & Myofascial Release article
+import pelvicFreedomHeroImg from '../assets/images/pelvic_freedom_hero_1788441163800.jpg';
+import bioTensegrityImg from '../assets/images/bio_tensegrity_fascia_1788441178723.jpg';
+import eliteFiveAsanasImg from '../assets/images/elite_five_asanas_1788441192532.jpg';
+import myofascialReleaseImg from '../assets/images/myofascial_release_hip_1788441206609.jpg';
+
 export const BLOG_POSTS = [
+  {
+    id: "pelvic-freedom-yoga-myofascial-release-stamina",
+    slug: "pelvic-freedom-yoga-myofascial-release-stamina",
+    title: "Pelvic Freedom: Yoga and Myofascial Release for Infinite Stamina",
+    fullTitle: "[The Elastic Architecture] Pelvic Freedom: Yoga and Myofascial Release for Infinite Stamina",
+    subtitle: "Why chronic hip stiffness, tight adductors, and rigid psoas muscles lock the pelvic floor into hypertonic tension—and the 15-minute asana and myofascial protocol for supple stamina.",
+    publishedDate: "September 2026",
+    readTime: "16 min read",
+    category: "Functional Biomechanics",
+    targetKeywords: "Yoga for sexual stamina, pelvic floor stretching for men, psoas release for performance, myofascial release for stamina, hip mobility and sexual health, yoga asanas for male endurance, fascial tension and premature climax",
+    author: {
+      name: "Art of Stamina Fascial Mobility Lab",
+      role: "Myofascial Kinematics & Yoga Physiology",
+      avatar: "FASCIA"
+    },
+    heroImage: pelvicFreedomHeroImg,
+    heroImageAlt: "Pelvic freedom, yoga and myofascial release for male sexual stamina and hip mobility",
+    images: {
+      hero: pelvicFreedomHeroImg,
+      bioTensegrity: bioTensegrityImg,
+      eliteFive: eliteFiveAsanasImg,
+      myofascialRelease: myofascialReleaseImg,
+    },
+    toc: [
+      { id: "freedom-intro", title: "Introduction: The 'Stiff Man' Epidemic" },
+      { id: "freedom-ch1", title: "1. Bio-Tensegrity and the Fascial 'Wetsuit'" },
+      { id: "freedom-ch2", title: "2. The Hip-Stamina Axis — The Psoas and Glutes" },
+      { id: "freedom-ch3", title: "3. Yoga as Neural-Mechanical Training" },
+      { id: "freedom-ch4", title: "4. The 'Prestige' Asana Protocol — The Elite Five" },
+      { id: "freedom-ch5", title: "5. Myofascial Release — Tools and Tactics" },
+      { id: "freedom-ch6", title: "6. Dynamic vs. Static Stretching for Performance" },
+      { id: "freedom-ch7", title: "7. Breathing Through the Stretch" },
+      { id: "freedom-ch8", title: "8. The 15-Minute 'Open-Flow' Routine" },
+      { id: "freedom-ch9", title: "9. The Emotional-Physical Link — Stress Dumping" },
+      { id: "freedom-assessment", title: "Interactive: Pelvic Tension & Mobility Audit" },
+      { id: "freedom-faq", title: "FAQ: Pelvic Freedom & Yoga" },
+      { id: "freedom-conclusion", title: "Conclusion: The Fluid Man" },
+    ],
+  },
   {
     id: "dopamine-fasting-neurological-desensitization-stamina",
     slug: "dopamine-fasting-neurological-desensitization-stamina",

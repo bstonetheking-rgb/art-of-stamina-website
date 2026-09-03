@@ -33,6 +33,7 @@ import ArticleEndocrine from '../components/articles/ArticleEndocrine';
 import ArticleLongevity from '../components/articles/ArticleLongevity';
 import ArticleBiomechanics from '../components/articles/ArticleBiomechanics';
 import ArticleDopamineReset from '../components/articles/ArticleDopamineReset';
+import ArticlePelvicFreedom from '../components/articles/ArticlePelvicFreedom';
 import BookMockup from '../components/BookMockup';
 import { triggerContentLocker } from '../utils/locker';
 
@@ -460,7 +461,9 @@ export default function BlogPostPage({ onOpenGuide }) {
           <article className="lg:col-span-8 space-y-12">
             
             {/* Conditional Rendering of Specific Full Article */}
-            {post.id === 'dopamine-fasting-neurological-desensitization-stamina' ? (
+            {post.id === 'pelvic-freedom-yoga-myofascial-release-stamina' ? (
+              <ArticlePelvicFreedom post={post} onLockerClick={handleLockerClick} />
+            ) : post.id === 'dopamine-fasting-neurological-desensitization-stamina' ? (
               <ArticleDopamineReset post={post} onLockerClick={handleLockerClick} />
             ) : post.id === 'pelvic-floor-synergy-functional-kinetic-chain-stamina' ? (
               <ArticleBiomechanics post={post} onLockerClick={handleLockerClick} />

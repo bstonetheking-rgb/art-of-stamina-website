@@ -293,6 +293,29 @@ export default function ArticleBreathMastery({ post, onLockerClick }) {
           </p>
         </div>
 
+        {/* COMPANION INTERLINK: PELVIC FREEDOM YOGA & MYOFASCIAL RELEASE */}
+        <div className="my-5 p-4 rounded-xl bg-[#141624] border border-[#c5a059]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="space-y-0.5">
+            <div className="text-[10px] text-[#dfc58b] font-bold uppercase tracking-wider flex items-center gap-1">
+              <Sparkles className="w-3.5 h-3.5 text-[#c5a059]" />
+              <span>Somatic Elasticity Masterclass</span>
+            </div>
+            <div className="text-sm font-serif font-bold text-[#fbf9f4]">
+              [The Elastic Architecture] Pelvic Freedom: Yoga &amp; Myofascial Release
+            </div>
+            <div className="text-xs text-[#8e909a]">
+              Pair deep respiratory biofeedback with the 15-minute Open-Flow asana sequence and adductor release.
+            </div>
+          </div>
+          <Link
+            to="/blog/pelvic-freedom-yoga-myofascial-release-stamina"
+            className="flex-shrink-0 inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-[#c5a059]/20 hover:bg-[#c5a059] text-[#dfc58b] hover:text-black text-xs font-bold transition-all no-underline"
+          >
+            <span>Read Pelvic Freedom</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
         <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#fbf9f4] pt-3">
           The Difference Between Chest and Diaphragmatic Breathing
         </h3>
