@@ -76,7 +76,96 @@ import bioTensegrityImg from '../assets/images/bio_tensegrity_fascia_17884411787
 import eliteFiveAsanasImg from '../assets/images/elite_five_asanas_1788441192532.jpg';
 import myofascialReleaseImg from '../assets/images/myofascial_release_hip_1788441206609.jpg';
 
+// Asset paths for Thermal Architecture / Cold Exposure & Autonomic Conditioning article
+import thermalHeroImg from '../assets/images/thermal_hero_contrast_1792153298395.jpg';
+import vascularContrastImg from '../assets/images/vascular_contrast_hemodynamics_1792153313250.jpg';
+import autonomicStressImg from '../assets/images/autonomic_stress_bridge_1792153333007.jpg';
+import thermalRoutineImg from '../assets/images/thermal_routine_protocol_1792153346983.jpg';
+
+// Asset paths for Early Warning Signs of Erectile Dysfunction article
+import edWarningHeroImg from '../assets/images/ed_warning_hero_1794930275130.jpg';
+import edEhsVascularImg from '../assets/images/ed_ehs_vascular_chart_1794930276566.jpg';
+import edRemSleepImg from '../assets/images/ed_rem_sleep_chart_clean_1794930292997.jpg';
+import edRestorationHabitsImg from '../assets/images/ed_restoration_habits_1794930278666.jpg';
+
 export const BLOG_POSTS = [
+  {
+    id: "early-warning-signs-erectile-dysfunction-natural-fixes",
+    slug: "early-warning-signs-erectile-dysfunction-natural-fixes",
+    title: "Early Warning Signs of Erectile Dysfunction: How to Spot the Symptoms and Fix Them Naturally",
+    fullTitle: "Early Warning Signs of Erectile Dysfunction: How to Spot the Symptoms and Fix Them Naturally",
+    subtitle: "How to recognize subtle firmness shifts on the Erection Hardness Score (EHS), understand nocturnal erections, separate psychological vs. vascular causes, and build lasting daily habits.",
+    publishedDate: "November 2026",
+    readTime: "15 min read",
+    category: "Vascular & Clinical Health",
+    targetKeywords: "symptoms of erectile dysfunction, early signs of ED, causes of weak erections, morning wood gone, how to get harder erections naturally, why do I lose my erection quickly",
+    author: {
+      name: "Art of Stamina Clinical Health Lab",
+      role: "Vascular Physiology & Mens Sexual Health",
+      avatar: "VASC"
+    },
+    heroImage: edWarningHeroImg,
+    heroImageAlt: "Early warning signs of erectile dysfunction, vascular health and natural erection recovery",
+    images: {
+      hero: edWarningHeroImg,
+      ehsChart: edEhsVascularImg,
+      remSleepChart: edRemSleepImg,
+      habitsChart: edRestorationHabitsImg,
+    },
+    toc: [
+      { id: "ed-intro", title: "Introduction: It Doesn’t Happen Overnight" },
+      { id: "ed-ch1", title: "1. The Hardness Scale — How Hard Are You Really?" },
+      { id: "ed-ch2", title: "2. The 5 Early Warning Signs Most Men Ignore" },
+      { id: "ed-ch3", title: "3. What Happened to Your Morning Wood?" },
+      { id: "ed-ch4", title: "4. Is It in Your Head or in Your Body?" },
+      { id: "ed-ch5", title: "5. The Hidden Physical Causes of Weak Erections" },
+      { id: "ed-ch6", title: "6. The Mental Traps That Can Affect Your Firmness" },
+      { id: "ed-ch7", title: "7. Why Your Erection Is an Early Warning for Your Heart" },
+      { id: "ed-ch8", title: "8. Simple Daily Habits to Support Healthier Erections" },
+      { id: "ed-assessment", title: "Interactive: Early-Warning Pattern Self-Check" },
+      { id: "ed-faq", title: "9. Frequently Asked Questions" },
+      { id: "ed-conclusion", title: "Conclusion: Take Back Your Command" },
+    ],
+  },
+  {
+    id: "cold-exposure-contrast-therapy-autonomic-conditioning-stamina",
+    slug: "cold-exposure-contrast-therapy-autonomic-conditioning-stamina",
+    title: "Cold Exposure, Contrast Therapy, and Autonomic Conditioning for Better Stamina",
+    fullTitle: "[The Thermal Architecture] Cold Exposure, Contrast Therapy, and Autonomic Conditioning for Better Stamina",
+    subtitle: "How temperature-induced vascular hemodynamics, cold-shock stress inoculation, and heat shock proteins train the nervous system to remain composed under high arousal.",
+    publishedDate: "October 2026",
+    readTime: "16 min read",
+    category: "Autonomic Conditioning",
+    targetKeywords: "Cold plunge for sexual stamina, contrast therapy for men, thermal conditioning performance, cold shower vagus nerve stamina, heat shock proteins testosterone, sauna nitric oxide erectile endurance, stress inoculation training",
+    author: {
+      name: "Art of Stamina Thermal Physiology Lab",
+      role: "Thermal Hormesis & Autonomic Conditioning",
+      avatar: "THERMAL"
+    },
+    heroImage: thermalHeroImg,
+    heroImageAlt: "Cold exposure, contrast therapy, sauna and autonomic conditioning for masculine stamina",
+    images: {
+      hero: thermalHeroImg,
+      vascular: vascularContrastImg,
+      autonomic: autonomicStressImg,
+      routine: thermalRoutineImg,
+    },
+    toc: [
+      { id: "thermal-intro", title: "Introduction: Thermal Hormesis & Stress Inoculation" },
+      { id: "thermal-ch1", title: "1. Vascular Health & Contrast Therapy Mechanics" },
+      { id: "thermal-ch2", title: "2. Cold Exposure & Nervous-System Regulation" },
+      { id: "thermal-ch3", title: "3. The Neurochemical Response to Cold" },
+      { id: "thermal-ch4", title: "4. Heat Shock Proteins & Sauna Benefits" },
+      { id: "thermal-ch5", title: "5. Testicular Temperature & Hormonal Health" },
+      { id: "thermal-ch6", title: "6. The Thermal Bridge — Calm in the Bedroom" },
+      { id: "thermal-ch7", title: "7. A Four-Week Progressive Thermal Routine" },
+      { id: "thermal-ch8", title: "8. Safety, Contraindications & Training Timing" },
+      { id: "thermal-ch9", title: "9. Brown Fat, Metabolism & Physical Stamina" },
+      { id: "thermal-interactive", title: "Interactive: 4-Week Protocol Stepper" },
+      { id: "thermal-faq", title: "10. Frequently Asked Questions (FAQ)" },
+      { id: "thermal-conclusion", title: "Conclusion: The Calm & Capable Body" },
+    ],
+  },
   {
     id: "pelvic-freedom-yoga-myofascial-release-stamina",
     slug: "pelvic-freedom-yoga-myofascial-release-stamina",

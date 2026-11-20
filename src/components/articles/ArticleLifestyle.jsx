@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Moon, 
   Sun, 
@@ -17,7 +18,8 @@ import {
   Dumbbell, 
   ShieldCheck, 
   Zap, 
-  Wind 
+  Wind,
+  ArrowUpRight
 } from 'lucide-react';
 import BookMockup from '../BookMockup';
 
@@ -191,6 +193,29 @@ export default function ArticleLifestyle({ post, onLockerClick }) {
           <li>Limit screen use before bed if scrolling keeps your brain alert.</li>
           <li>Get daylight exposure during the day to support a healthy circadian rhythm.</li>
         </ul>
+
+        {/* COMPANION INTERLINK: EARLY WARNING SIGNS OF ED */}
+        <div className="my-6 p-4 rounded-xl bg-[#141624] border border-[#c5a059]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="space-y-0.5">
+            <div className="text-[10px] text-[#dfc58b] font-bold uppercase tracking-wider flex items-center gap-1">
+              <Moon className="w-3.5 h-3.5 text-[#c5a059]" />
+              <span>Sleep &amp; Nocturnal Erections</span>
+            </div>
+            <div className="text-sm font-serif font-bold text-[#fbf9f4]">
+              Early Warning Signs of Erectile Dysfunction: Morning Wood &amp; Natural Fixes
+            </div>
+            <div className="text-xs text-[#8e909a]">
+              Discover how REM sleep drives nocturnal penile tumescence and how sleep, hydration, and walking restore firmness naturally.
+            </div>
+          </div>
+          <Link
+            to="/blog/early-warning-signs-erectile-dysfunction-natural-fixes"
+            className="flex-shrink-0 inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-[#c5a059]/20 hover:bg-[#c5a059] text-[#dfc58b] hover:text-black text-xs font-bold transition-all no-underline"
+          >
+            <span>Read ED Warning Signs</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
       </section>
 
       {/* CHAPTER 2: NICOTINE, SMOKING, VAPING */}

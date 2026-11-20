@@ -34,6 +34,8 @@ import ArticleLongevity from '../components/articles/ArticleLongevity';
 import ArticleBiomechanics from '../components/articles/ArticleBiomechanics';
 import ArticleDopamineReset from '../components/articles/ArticleDopamineReset';
 import ArticlePelvicFreedom from '../components/articles/ArticlePelvicFreedom';
+import ArticleThermalArchitecture from '../components/articles/ArticleThermalArchitecture';
+import ArticleEarlyWarningED from '../components/articles/ArticleEarlyWarningED';
 import BookMockup from '../components/BookMockup';
 import { triggerContentLocker } from '../utils/locker';
 
@@ -461,7 +463,11 @@ export default function BlogPostPage({ onOpenGuide }) {
           <article className="lg:col-span-8 space-y-12">
             
             {/* Conditional Rendering of Specific Full Article */}
-            {post.id === 'pelvic-freedom-yoga-myofascial-release-stamina' ? (
+            {post.id === 'early-warning-signs-erectile-dysfunction-natural-fixes' ? (
+              <ArticleEarlyWarningED post={post} onLockerClick={handleLockerClick} />
+            ) : post.id === 'cold-exposure-contrast-therapy-autonomic-conditioning-stamina' ? (
+              <ArticleThermalArchitecture post={post} onLockerClick={handleLockerClick} />
+            ) : post.id === 'pelvic-freedom-yoga-myofascial-release-stamina' ? (
               <ArticlePelvicFreedom post={post} onLockerClick={handleLockerClick} />
             ) : post.id === 'dopamine-fasting-neurological-desensitization-stamina' ? (
               <ArticleDopamineReset post={post} onLockerClick={handleLockerClick} />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Heart, 
   Activity, 
@@ -13,7 +14,8 @@ import {
   Zap, 
   AlertCircle, 
   Flame,
-  Dumbbell
+  Dumbbell,
+  ArrowUpRight
 } from 'lucide-react';
 import BookMockup from '../BookMockup';
 
@@ -483,6 +485,52 @@ export default function ArticleNitricOxide({ post, onLockerClick }) {
         <p>
           The best exercise program is usually the one you can maintain. Before beginning a new intense exercise program, especially if you have been inactive or have a medical condition, consult a qualified healthcare professional.
         </p>
+
+        {/* COMPANION INTERLINK: THERMAL CONDITIONING & VASCULAR RECOVERY */}
+        <div className="my-6 p-4 rounded-xl bg-[#141624] border border-[#c5a059]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="space-y-0.5">
+            <div className="text-[10px] text-[#dfc58b] font-bold uppercase tracking-wider flex items-center gap-1">
+              <Sparkles className="w-3.5 h-3.5 text-[#c5a059]" />
+              <span>Thermal Hemodynamics &amp; Contrast</span>
+            </div>
+            <div className="text-sm font-serif font-bold text-[#fbf9f4]">
+              [The Thermal Architecture] Cold Exposure, Contrast Therapy &amp; Autonomic Conditioning
+            </div>
+            <div className="text-xs text-[#8e909a]">
+              Learn how heat shock proteins, thermal vasodilation, and cool finishes train microvascular compliance and stress tolerance.
+            </div>
+          </div>
+          <Link
+            to="/blog/cold-exposure-contrast-therapy-autonomic-conditioning-stamina"
+            className="flex-shrink-0 inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-[#c5a059]/20 hover:bg-[#c5a059] text-[#dfc58b] hover:text-black text-xs font-bold transition-all no-underline"
+          >
+            <span>Read Thermal Architecture</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
+        {/* COMPANION INTERLINK: EARLY WARNING SIGNS OF ED */}
+        <div className="my-6 p-4 rounded-xl bg-[#141624] border border-[#c5a059]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="space-y-0.5">
+            <div className="text-[10px] text-[#dfc58b] font-bold uppercase tracking-wider flex items-center gap-1">
+              <Heart className="w-3.5 h-3.5 text-[#c5a059]" />
+              <span>Endothelial Early Warning</span>
+            </div>
+            <div className="text-sm font-serif font-bold text-[#fbf9f4]">
+              Early Warning Signs of Erectile Dysfunction: Spot Symptoms &amp; Fix Naturally
+            </div>
+            <div className="text-xs text-[#8e909a]">
+              Learn how subtle firmness changes on the Erection Hardness Score (EHS) reflect vascular health and daily recovery habits.
+            </div>
+          </div>
+          <Link
+            to="/blog/early-warning-signs-erectile-dysfunction-natural-fixes"
+            className="flex-shrink-0 inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-[#c5a059]/20 hover:bg-[#c5a059] text-[#dfc58b] hover:text-black text-xs font-bold transition-all no-underline"
+          >
+            <span>Read ED Warning Signs</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
       </section>
 
       {/* CHAPTER 10: FAQS */}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Activity, 
   Sparkles, 
@@ -23,7 +24,8 @@ import {
   Layers,
   ThermometerSun,
   Pill,
-  Sun
+  Sun,
+  ArrowUpRight
 } from 'lucide-react';
 import BookMockup from '../BookMockup';
 
@@ -581,6 +583,29 @@ export default function ArticleEndocrine({ post, onLockerClick }) {
             <li><strong>Cease caffeine consumption 8–10 hours</strong> before your target bedtime.</li>
             <li><strong>Avoid heavy alcohol close to bed</strong>; while it induces sedation, it severely fragments REM sleep architecture.</li>
           </ol>
+        </div>
+
+        {/* COMPANION INTERLINK: THERMAL CONDITIONING & TESTICULAR HEALTH */}
+        <div className="my-6 p-4 rounded-xl bg-[#141624] border border-[#c5a059]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="space-y-0.5">
+            <div className="text-[10px] text-[#dfc58b] font-bold uppercase tracking-wider flex items-center gap-1">
+              <Sparkles className="w-3.5 h-3.5 text-[#c5a059]" />
+              <span>Thermal Hormesis &amp; Androgen Health</span>
+            </div>
+            <div className="text-sm font-serif font-bold text-[#fbf9f4]">
+              [The Thermal Architecture] Cold Exposure, Contrast Therapy &amp; Autonomic Conditioning
+            </div>
+            <div className="text-xs text-[#8e909a]">
+              The biological facts on testicular temperature, scrotal cooling myths, heat shock proteins, and sauna cardiovascular adaptation.
+            </div>
+          </div>
+          <Link
+            to="/blog/cold-exposure-contrast-therapy-autonomic-conditioning-stamina"
+            className="flex-shrink-0 inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-[#c5a059]/20 hover:bg-[#c5a059] text-[#dfc58b] hover:text-black text-xs font-bold transition-all no-underline"
+          >
+            <span>Read Thermal Guide</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
       </section>
 

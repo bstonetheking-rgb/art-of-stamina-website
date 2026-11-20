@@ -554,6 +554,29 @@ export default function ArticleDopamineReset({ post, onLockerClick }) {
             </li>
           </ul>
         </div>
+
+        {/* COMPANION INTERLINK: THERMAL CONDITIONING & AUTONOMIC INOCULATION */}
+        <div className="my-6 p-4 rounded-xl bg-[#141624] border border-[#c5a059]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="space-y-0.5">
+            <div className="text-[10px] text-[#dfc58b] font-bold uppercase tracking-wider flex items-center gap-1">
+              <Sparkles className="w-3.5 h-3.5 text-[#c5a059]" />
+              <span>Autonomic Stress Inoculation</span>
+            </div>
+            <div className="text-sm font-serif font-bold text-[#fbf9f4]">
+              [The Thermal Architecture] Cold Exposure, Contrast Therapy &amp; Autonomic Conditioning
+            </div>
+            <div className="text-xs text-[#8e909a]">
+              Pair your neurochemical reset with temperature hormesis and cold-shock vagal regulation drills.
+            </div>
+          </div>
+          <Link
+            to="/blog/cold-exposure-contrast-therapy-autonomic-conditioning-stamina"
+            className="flex-shrink-0 inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-[#c5a059]/20 hover:bg-[#c5a059] text-[#dfc58b] hover:text-black text-xs font-bold transition-all no-underline"
+          >
+            <span>Read Thermal Architecture</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
       </section>
 
       {/* CHAPTER 7: DELAYED GRATIFICATION AS A STAMINA TOOL */}
